@@ -1,6 +1,6 @@
 ---
 label: Home
-hide_body: true
+hide_body: false
 fields:
 - name: banner
   type: file
