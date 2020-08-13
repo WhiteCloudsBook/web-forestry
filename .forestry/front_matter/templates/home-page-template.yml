@@ -1,6 +1,6 @@
 ---
 label: Home
-hide_body: false
+hide_body: true
 fields:
 - name: banner
   type: file
@@ -16,3 +16,30 @@ fields:
     schema:
       format: markdown
   label: crowd funding text
+- name: read_book_text
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: read book text
+- name: read_book_url
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: read book url
+- name: book_blurb
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: html-blocks
+  label: book blurb
