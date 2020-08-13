@@ -1,7 +1,15 @@
 ---
-label: Blog Post
+label: Article
 hide_body: false
+display_field: title
 fields:
+- name: type
+  type: text
+  config:
+    required: false
+  hidden: true
+  label: type
+  default: article
 - type: text
   name: title
   label: title
