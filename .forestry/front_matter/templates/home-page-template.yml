@@ -43,5 +43,12 @@ fields:
     schema:
       format: html-blocks
   label: book blurb
+- name: type
+  type: text
+  config:
+    required: true
+  label: type
+  hidden: true
+  default: home
 pages:
 - content/index.md
