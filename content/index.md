@@ -22,5 +22,6 @@ book_blurb: "<p>Five centuries after a fraction of humanity left a dying Earth b
   only mean one thing - <strong>Annihilation</strong>.</p><p>Either way, Wendall has
   no choice but to confront what he cannot outrun - The part of the AI that's inside
   him.</p>"
+type: ''
 
 ---
