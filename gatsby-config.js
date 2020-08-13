@@ -1,19 +1,20 @@
 const config = require("./config.json")
-const infoData = require("./content/data/info.json")
+// const infoData = require("./content/data/info.json")
 
 module.exports = {
   //this makes the site config available to forestry cms
   siteMetadata: {
-    title: config.title,
-    description: config.description,
-    repoUrl: config.repository_url,
-    about: config.about,
-    contact: config.contact,
-    primaryColor: config.primary_color,
-    infoData: infoData
+    ...config,
+    // title: config.title,
+    // description: config.description,
+    // repoUrl: config.repository_url,
+    // about: config.about,
+    // contact: config.contact,
+    // primaryColor: config.primary_color,
+    // infoData: infoData,
+    // fb: config
   },
   plugins: [
-    "gatsby-plugin-sass",
     "gatsby-transformer-remark",
     "gatsby-plugin-react-helmet",
     "gatsby-transformer-yaml",
@@ -52,6 +53,7 @@ module.exports = {
       }
     },
     `gatsby-transformer-sharp`,
+    "gatsby-plugin-styled-components",
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -68,5 +70,6 @@ module.exports = {
         ],
       },
     },
+    "gatsby-plugin-netlify", // make sure to keep it last in the array
   ],
 }

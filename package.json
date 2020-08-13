@@ -1,15 +1,15 @@
 {
-  "name": "foresry-starter-blog-gatsby",
+  "name": "wcb-web",
   "private": true,
-  "description": "A simple starter blog to get up and developing quickly with Forestry & Gatsby",
+  "description": "white clouds book web built with Forestry & Gatsby",
   "license": "MIT",
   "version": "0.1.0",
-  "author": "kendall strautman",
+  "author": "yoav niran",
   "scripts": {
+    "clean": "rimraf .cache public",
     "build": "gatsby build",
     "dev": "gatsby develop -o",
     "develop": "yarn dev",
-    "format": "prettier --write src/**/*.{js,jsx}",
     "start": "yarn dev",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
@@ -18,8 +18,8 @@
   "dependencies": {
     "gatsby": "^2.23.12",
     "gatsby-image": "^2.4.9",
+    "gatsby-plugin-netlify": "^2.3.13",
     "gatsby-plugin-react-helmet": "^3.3.6",
-    "gatsby-plugin-sass": "^2.3.7",
     "gatsby-plugin-sharp": "^2.6.14",
     "gatsby-remark-images": "^3.3.14",
     "gatsby-remark-normalize-paths": "^1.0.0",
@@ -28,15 +28,16 @@
     "gatsby-transformer-remark": "^2.8.20",
     "gatsby-transformer-sharp": "^2.5.7",
     "gatsby-transformer-yaml": "^2.4.6",
-    "node-sass": "^4.14.1",
+    "grommet": "^2.14.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
+    "styled-components": "^5.1.1",
     "typescript": "^3.9.5",
     "webpack": "^4.43.0"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "gatsby-plugin-styled-components": "^3.3.10"
   },
   "keywords": [
     "gatsby",
@@ -44,6 +45,6 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kendallstrautman/brevifolia-gatsby-forestry"
+    "url": "https://github.com/WhiteCloudsBook/web-forestry"
   }
 }

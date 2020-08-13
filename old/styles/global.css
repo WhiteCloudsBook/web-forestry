@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+/*@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');*/
 
 body {
   font-family: "Work Sans","Helvetica Neue", Helvetica, sans-serif;
@@ -23,7 +23,7 @@ ul {
   margin: 0;
 }
 
-//TYPOGRAPHY-------------------------------------
+/*TYPOGRAPHY-------------------------------------*/
 
 h1, h2, h3, h4, h5, h6, p {
   font-family: "Work Sans","Helvetica Neue", Helvetica, sans-serif;
@@ -60,7 +60,7 @@ p {
   color: #464646;
 }
 
-// gatsby-image plugin container-----------------
+/*gatsby-image plugin container-----------------*/
 
 .gatsby-image-wrapper {
   width: 100%;

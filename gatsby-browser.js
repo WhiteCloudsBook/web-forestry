@@ -1,3 +1,3 @@
 //for importing global styles
-import "./src/styles/reset.scss"
-import "./src/styles/global.scss"
+// import "./src/styles/reset.css"
+// import "./src/styles/global.css"
