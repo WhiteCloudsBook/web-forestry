@@ -1,4 +1,18 @@
 ---
 label: Home Page Template
 hide_body: false
-fields: []
+fields:
+- name: banner
+  type: file
+  config:
+    maxSize: 64
+  label: banner
+- name: crowd_funding_text
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: crowd funding text
