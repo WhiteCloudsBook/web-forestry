@@ -10,8 +10,8 @@ sections:
   path: content/index.md
   label: Home
 - type: directory
-  path: content/posts
-  label: Blog Posts
+  path: content/articles
+  label: Articles
   create: documents
   match: "**/*"
   new_doc_ext: md
