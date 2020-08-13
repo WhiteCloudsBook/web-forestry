@@ -2,6 +2,13 @@
 label: Home
 hide_body: true
 fields:
+- name: type
+  type: text
+  config:
+    required: true
+  label: type
+  hidden: true
+  default: home
 - name: banner
   type: file
   config:
@@ -43,12 +50,5 @@ fields:
     schema:
       format: html-blocks
   label: book blurb
-- name: type
-  type: text
-  config:
-    required: true
-  label: type
-  hidden: true
-  default: home
 pages:
 - content/index.md
