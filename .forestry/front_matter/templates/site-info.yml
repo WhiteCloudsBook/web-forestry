@@ -11,5 +11,10 @@ fields:
 - type: text
   name: repository_url
   label: repository_url
+- name: cloudinary_base
+  type: text
+  config:
+    required: false
+  label: cloudinary base
 pages:
 - config.json
