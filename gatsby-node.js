@@ -1,11 +1,11 @@
 const path = require("path")
 
 module.exports.onCreateNode = ({ node, actions }) => {
-  // Transform the new node here and create a new node or
-  // create a new node field.
   const { createNodeField } = actions
+
   if (node.internal.type === "MarkdownRemark") {
     const slug = path.basename(node.fileAbsolutePath, ".md")
+
     createNodeField({
       //same as node: node
       node,
@@ -15,19 +15,33 @@ module.exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
+const getFilePublicPath = (filePath, type, slug) => {
+  const m = /content\/([\w\d\/\-\.]+)/
+    .exec(filePath)
+
+  const path = m && m[1] ?
+    m[1].split("/")
+      .slice(0, -1)
+      .join("/") : ""
+
+  return `/${path}${type !== "home" ? `/${slug}` : ""}`
+}
+
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  //dynamically create pages here
-  //get path to template
-  const blogTemplate = path.resolve("./src/templates/dummy.js")
-  //get slugs
+
   const response = await graphql(`
     query {
       allMarkdownRemark {
         edges {
           node {
+            id
+            fileAbsolutePath
             fields {
               slug
+            }
+            frontmatter {
+              type
             }
           }
         }
@@ -35,14 +49,25 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  //create new pages with unique slug
-  response.data.allMarkdownRemark.edges.forEach(edge => {
-    createPage({
-      component: blogTemplate,
-      path: `/blog/${edge.node.fields.slug}`,
+  response.data.allMarkdownRemark.edges.forEach((edge) => {
+    const id = edge.node.id,
+      fm = edge.node.frontmatter,
+      type = fm.type,
+      filePath = edge.node.fileAbsolutePath,
+      slug = edge.node.fields.slug
+
+    const pageData = {
+      component: path.resolve(
+        `src/templates/${fm.type}.js`,
+      ),
+      path: getFilePublicPath(filePath, type, slug),
       context: {
-        slug: edge.node.fields.slug,
+        id,
+        slug,
+        type,
       },
-    })
+    }
+
+    createPage(pageData)
   })
 }

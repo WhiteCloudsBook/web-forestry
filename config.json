@@ -1,8 +1,6 @@
 {
   "title": "White Clouds Book",
   "description": "White Clouds Book - Home on the Web",
-  "repository_url": "",
   "fbPageId": "whitecloudsbook",
-  "cloudinary_base": "https://res.cloudinary.com/whiteclouds/image/upload/",
   "cloudinaryBase": "https://res.cloudinary.com/whiteclouds/image/upload/"
 }
