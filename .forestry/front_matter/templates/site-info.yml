@@ -8,13 +8,15 @@ fields:
 - type: text
   name: description
   label: description
-- type: text
-  name: repository_url
-  label: repository_url
-- name: cloudinary_base
+- name: cloudinaryBase
   type: text
   config:
     required: false
-  label: cloudinary base
+  label: cloudinaryBase
+- name: fbPageId
+  type: text
+  config:
+    required: false
+  label: fbPageId
 pages:
 - config.json
