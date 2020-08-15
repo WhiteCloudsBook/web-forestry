@@ -49,6 +49,4 @@ fields:
     display_utc: false
   default: now
 pages:
-- content/articles/asdasdad.md
 - content/articles/kaishi-s-prophecy.md
-- content/articles/test.md
