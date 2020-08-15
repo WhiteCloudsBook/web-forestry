@@ -24,7 +24,7 @@ fields:
   config:
     maxSize: 64
   label: banner
-- name: crowd_funding_text
+- name: crowdFundingText
   type: textarea
   default: ''
   config:
@@ -33,7 +33,7 @@ fields:
     schema:
       format: markdown
   label: crowd funding text
-- name: read_book_text
+- name: readBookText
   type: textarea
   default: ''
   config:
@@ -42,7 +42,7 @@ fields:
     schema:
       format: markdown
   label: read book text
-- name: read_book_url
+- name: readBookUrl
   type: textarea
   default: ''
   config:
@@ -51,7 +51,7 @@ fields:
     schema:
       format: markdown
   label: read book url
-- name: book_blurb
+- name: bookBlurb
   type: textarea
   default: ''
   config:

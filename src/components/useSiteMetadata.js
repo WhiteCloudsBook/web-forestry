@@ -6,13 +6,11 @@ const useSiteMetadata = () => {
         query SITE_METADATA_QUERY {
             site {
                 siteMetadata {
+                    domain
                     title
                     description
-#                    imageUrl
-#                    siteUrl
-#                    email
-#                    fbAppId
-#                    fbPageId
+                    fbPageId
+                    cloudinaryBase
 #                    social{
 #                        twitter
 #                        facebook

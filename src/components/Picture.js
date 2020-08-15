@@ -29,6 +29,7 @@ export default ({ responsive = true, path, alt, ...rest }) => {
       {Object.entries(sizes).map(([key, width]) =>
         <source srcSet={getImageSrcset(cloudinaryBase, path, width, true)}
                 media={key}
+                key={key}
         />)}
       <Image src={getImageUrl(cloudinaryBase, path)} alt={alt} {...rest}/>
     </picture> :

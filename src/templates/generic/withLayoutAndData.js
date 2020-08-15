@@ -22,7 +22,8 @@ export default (converterFn, layoutPropsFn, children, options) =>
 
 			const { ogTags, ...restLayout } = layoutProps;
 
-			// pageProps.page.banner = pageProps.page.image || props.data.markdownRemark.image; //for remote images
+			pageProps.page.banner = "/" + pageProps.page.banner.replace(/\.\.\//g, "")
+        //pageProps.page.image || props.data.markdownRemark.image; //for remote images
 
 			return <Layout title={pageProps.page.title}
 				ogTags={{

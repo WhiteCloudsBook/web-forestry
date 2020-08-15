@@ -16,7 +16,7 @@ export const Main = styled.main`
   max-width: 1024px;
   margin: 0 auto;
   ${color("page-bg", "background-color")}
-  box-shadow: 0px 5px 10px 0px #5e8472;
+  //box-shadow: 0px 5px 10px 0px #5e8472;
 `;
 
 const Layout = (props) => {
