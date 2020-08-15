@@ -1,9 +1,11 @@
 ---
 type: article
+title: Kaishi's Prophecy
+description: Kaishi Jantis' prophecy she received from the AI
+banner: "/v1597352393/site/site-banner-with-text_cucfct.png"
 date: 2020-08-13T21:37:38Z
 hero_image: "/content/images/sarah-dorweiler-9Z1KRIfpBTM-unsplash.jpg"
-title: Kaishi's Prophecy
-author: Robert Thoreau
+author: Yoav Niran
 
 ---
 _At a time calculated by the star dwellers_

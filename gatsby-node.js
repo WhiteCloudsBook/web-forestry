@@ -54,17 +54,19 @@ module.exports.createPages = async ({ graphql, actions }) => {
       fm = edge.node.frontmatter,
       type = fm.type,
       filePath = edge.node.fileAbsolutePath,
-      slug = edge.node.fields.slug
+      slug = edge.node.fields.slug,
+      pagePath = getFilePublicPath(filePath, type, slug);
 
     const pageData = {
       component: path.resolve(
         `src/templates/${fm.type}.js`,
       ),
-      path: getFilePublicPath(filePath, type, slug),
+      path: pagePath,
       context: {
         id,
         slug,
         type,
+        pagePath,
       },
     }
 

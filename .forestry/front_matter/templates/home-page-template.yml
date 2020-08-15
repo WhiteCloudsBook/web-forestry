@@ -9,6 +9,16 @@ fields:
   label: type
   hidden: true
   default: home
+- name: title
+  type: text
+  label: title
+  config:
+    required: true
+- name: description
+  type: textarea
+  label: description
+  config:
+    required: true
 - name: banner
   type: file
   config:

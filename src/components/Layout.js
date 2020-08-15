@@ -20,6 +20,9 @@ export const Main = styled.main`
 `;
 
 const Layout = (props) => {
+
+  console.log("!!!! RENDERING PAGE LAYOUT - ", props);
+
   const { title, description } = useSiteMetadata();
 
   const titleTemplate = props.titleTemplateOverride ?
@@ -31,7 +34,7 @@ const Layout = (props) => {
       <GlobalStyles />
       <div>
         <Helmet titleTemplate={titleTemplate}>
-          <title>{props.title || title}</title>
+          <title>{`${props.title} - ${title}`}</title>
 
           <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials" />
           {/*<link rel="preconnect" href="https://adservice.google.com" crossorigin="use-credentials" />*/}

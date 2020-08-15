@@ -2,6 +2,11 @@
 label: Site Config
 hide_body: true
 fields:
+- name: domain
+  type: text
+  config:
+    required: true
+  label: domain
 - type: text
   name: title
   label: title
@@ -11,7 +16,7 @@ fields:
 - name: cloudinaryBase
   type: text
   config:
-    required: false
+    required: true
   label: cloudinaryBase
 - name: fbPageId
   type: text

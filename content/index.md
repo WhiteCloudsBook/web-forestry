@@ -1,4 +1,6 @@
 ---
+title: Home
+description: home page for the White Clouds Sci-fi novel by Yoav Niran
 crowd_funding_text: Your help is needed! Crowdfunding project coming soon...
 banner: "/v1597352393/site/site-banner-with-text_cucfct.png"
 read_book_text: Read the first part of the book
