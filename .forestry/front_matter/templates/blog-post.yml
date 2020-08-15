@@ -50,3 +50,4 @@ fields:
   default: now
 pages:
 - content/articles/kaishi-s-prophecy.md
+- content/articles/test.md
