@@ -30,7 +30,7 @@ sections:
   label: Site Info
 upload_dir: site
 public_path: https://res.cloudinary.com/whiteclouds/image/upload
-front_matter_path: _
+front_matter_path: ''
 use_front_matter_path: true
 file_template: ":filename:"
 build:
