@@ -2,7 +2,7 @@
 title: Home
 description: home page for the White Clouds Sci-fi novel by Yoav Niran
 crowdFundingText: Your help is needed! Crowdfunding project coming soon...
-banner: "/v1597352393/site/site-banner-with-text_cucfct.png"
+banner: "/v1597784586/site/banner_xmi4qj.png"
 readBookText: Click here to read the first part of the book
 readBookUrl: https://www.wattpad.com/story/212341112-white-clouds
 bookBlurb: "<p>Five centuries after a fraction of humanity left a dying Earth behind
@@ -24,6 +24,6 @@ bookBlurb: "<p>Five centuries after a fraction of humanity left a dying Earth be
   only mean one thing - <strong>Annihilation</strong>.</p><p>Either way, Wendall has
   no choice but to confront what he cannot outrun - The part of the AI that's inside
   him.</p><p></p>"
-type: 'home'
+type: home
 
 ---
