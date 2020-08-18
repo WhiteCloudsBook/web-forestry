@@ -2,7 +2,6 @@ import { get as _get } from "lodash";
 import { css } from "styled-components";
 import { colors, breakpoints } from "./common/themeDefaults";
 
-
 export const FONT_FAMILY = "'Frank Ruhl Libre', serif";
 
 export const HEADING_FAMILY = "'Amatic SC', cursive";
@@ -51,14 +50,22 @@ const getBorderSize = (theme, size) => size ?
 	getFromTheme(theme, `global.borderSize.${size}`) :
 	(size) => getFromTheme(theme, `global.borderSize.${size}`);
 
+const throwUnknownColor = (name) => {
+  throw new Error(`unknown color name: ${name}`);
+};
+
 export const color = (name, style = "color") =>
 	(/*strings, ...interpolations*/) =>
 		({ theme }) => {
-			if (!theme.global.colors[name] && name.indexOf("#")) {
-				throw new Error(`unknown color name: ${name}`);
+			if (!theme.global.colors[name] && name.indexOf("#") && !~name.indexOf(".")) {
+				throwUnknownColor(name);
 			}
 
 			const value = !name.indexOf("#") ? name : getColor(theme, name);
+
+			if (!value) {
+        throwUnknownColor(name);
+      }
 
 			style = style === "bg" ? "background-color" : style;
 

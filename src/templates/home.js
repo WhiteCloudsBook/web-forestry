@@ -4,27 +4,9 @@ import styled from "styled-components";
 import { color } from "../theme";
 import Layout from "../components/Layout";
 import Picture from "../components/Picture";
+import PageTextBox from "../components/PageTextBox";
 import withLayoutAndData from "./generic/withLayoutAndData";
 
-const CrowdFundingBox = styled.div`
-  background: url("https://res.cloudinary.com/whiteclouds/image/upload/w_1000/v1597496828/site/stars-people_av6uaw.png") no-repeat;
-  background-size: cover;
-  width: 80%;
-  max-width: 600px;
-  min-width: 400px;
-  margin: 20px 0;
-  height: 200px;    
-`;
-
-const CrowdFundingText = styled.div`
-  font-size: 32px;
-  ${color("white")}
-  max-width: 220px;
-  line-height: 38px;
-  text-align: center;
-  background-color: #46464673;
-  height: 100%;
-`;
 
 const MainSection = styled.section`
   width: 100%;
@@ -36,17 +18,18 @@ const MainSection = styled.section`
 const HomePageTemplate = (props) => {
 
   console.log("!!!!!! rendering home page ", props);
+
   return <Layout>
     <Picture path={props.page.banner}/>
 
     <MainSection>
-      <CrowdFundingBox>
-        <CrowdFundingText>
-          {props.page.crowdFundingText}
-        </CrowdFundingText>
-      </CrowdFundingBox>
-    </MainSection>
+      <PageTextBox text={props.page.crowdFundingText}
+        image="w_1000/v1597496828/site/stars-people_av6uaw.png"/>
 
+      <PageTextBox text={props.page.readBookText}
+                   link={props.page.readBookUrl}
+                   image="w_1000/v1597745087/site/jonathan-borba-3eC5n6gHwe8-unsplash_npjctj.png"/>
+    </MainSection>
   </Layout>;
 };
 

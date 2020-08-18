@@ -11,8 +11,8 @@
 
 
 export const colors = {
-  "page-bg": "#2e2f32",
-
+  "page-bg": "#232429",
+  "main-bg": "#2e2f32",
 	// "brand-gradient-dark": "linear-gradient(to right, #22d640 0%,#247f34 100%);",
 	// "brand": "#22d640",
 	// "brand-dark": "#0e751f",
@@ -26,7 +26,7 @@ export const colors = {
 		light: "#fff",
 	},
 	border: {
-		light: "#a6e292c7",
+		light: "#5f5858",
 		medium: "#1999",
 		dark: "#2a6b17f0",
 	}
