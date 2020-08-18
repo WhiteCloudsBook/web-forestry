@@ -49,5 +49,4 @@ fields:
     display_utc: false
   default: now
 pages:
-- content/articles/asdsfdf.md
 - content/articles/kaishi-s-prophecy.md
