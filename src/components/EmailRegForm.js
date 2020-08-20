@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 import React, { useContext, useState, useCallback, useEffect } from "react";
 import styled from "styled-components";
 import { Button, ThemeContext } from "grommet";
@@ -48,8 +49,8 @@ const setRegisterSuccess = () => {
 	// navigate(navUrl);
 };
 
-const Form = styled.form`
-    display: flex;
+const StyledForm = styled.form`
+    display: ${({ hide }) => hide ? "none" : "flex"};
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -96,12 +97,11 @@ const encode = (data) => Object.keys(data)
 		`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
 	.join("&");
 
-const renderCta = (showForm, mainText) => {
-  return <CtaContainer>
+const RegCta = ({ showForm, mainText }) =>
+  <CtaContainer>
     <h3>{mainText}</h3>
     <Button label="Register" onClick={showForm}/>
   </CtaContainer>;
-};
 
 const CloseButton = styled(FormClose)`
 	cursor: pointer;
@@ -110,7 +110,45 @@ const CloseButton = styled(FormClose)`
   top: 5px;
 `;
 
-const ModalForm = ({ onFieldChange, onSubmit, setRecaptchaValue, setIsFormShowing, mainText, subText }) => {
+const Form = ({ onSubmit, mainText, subText, onFieldChange, setRecaptchaValue, hide = false }) => <StyledForm
+  name="contactlist"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  data-netlify-recaptcha="true"
+  onSubmit={onSubmit}
+  hide={hide}>
+
+  <input type="hidden" name="form-name" value="contactlist"/>
+
+  <br/>
+  <h3>{mainText}</h3>
+  <p>{subText}</p>
+
+  <FormRowsContainer>
+    <FormRow>
+      <FormLabel htmlFor="name">Name:</FormLabel>
+      <FormInput name="name" type="text" required
+                 onChange={onFieldChange}/>
+    </FormRow>
+
+    <FormRow>
+      <FormLabel htmlFor="email">Email:</FormLabel>
+      <FormInput name="email" type="email" required
+                 onChange={onFieldChange}/>
+    </FormRow>
+  </FormRowsContainer>
+
+  <FormRow>
+    <Button type="submit" primary label="Register"/>
+  </FormRow>
+
+  {!isDev && <ReCaptcha
+    sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY || "xxxx"}
+    onChange={setRecaptchaValue}/>}
+</StyledForm>;
+
+const ModalForm = ({ show, onFieldChange, onSubmit, setRecaptchaValue, setIsFormShowing, mainText, subText }) => {
   const theme = useContext(ThemeContext);
   const [overlayRef, setOverlayRef] = useState();
 
@@ -135,49 +173,14 @@ const ModalForm = ({ onFieldChange, onSubmit, setRecaptchaValue, setIsFormShowin
     };
   }, [overlayRef, closeModal]);
 
-  return <Modal isOpen overlayRef={setOverlayRef}
+  return <Modal isOpen={show} overlayRef={setOverlayRef}
                 style={{
                   content: { backgroundColor: getColor(theme, "page-bg") },
                   overlay: { backgroundColor: getColor(theme, "overlay-bg") }
                 }}
   >
     <CloseButton size="large" onClick={closeModal}/>
-      <Form
-        name="contactlist"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        data-netlify-recaptcha="true"
-        onSubmit={onSubmit}>
-
-        <input type="hidden" name="form-name" value="contactlist"/>
-
-        <br/>
-        <h3>{mainText}</h3>
-        <p>{subText}</p>
-
-        <FormRowsContainer>
-          <FormRow>
-            <FormLabel htmlFor="name">Name:</FormLabel>
-            <FormInput name="name" type="text" required
-                       onChange={onFieldChange}/>
-          </FormRow>
-
-          <FormRow>
-            <FormLabel htmlFor="email">Email:</FormLabel>
-            <FormInput name="email" type="email" required
-                       onChange={onFieldChange}/>
-          </FormRow>
-        </FormRowsContainer>
-
-        <FormRow>
-          <Button type="submit" primary label="Register"/>
-        </FormRow>
-
-        {!isDev &&<ReCaptcha
-          sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY || "xxxx"}
-          onChange={setRecaptchaValue}/>}
-      </Form>
+    <Form onSubmit={onSubmit} mainText={mainText} subText={subText} onFieldChange={onFieldChange} setRecaptchaValue={setRecaptchaValue} />
   </Modal>;
 };
 
@@ -212,11 +215,9 @@ export default ({ mainText, subText }) => {
 		}), [fieldsState]);
 
 	const onSubmit = useCallback((e) => {
-		e.preventDefault();
+    const form = e.target;
 
-		const form = e.target;
-			// successUrl = form.getAttribute("action");
-
+	  e.preventDefault();
 		notificationContext.setNotification(null);
 
 		if (!Object.values(fieldsState).find((f) => !f) && (isDev || recaptchaValue)) {
@@ -253,14 +254,16 @@ export default ({ mainText, subText }) => {
 		}
 	}, [setSuccess, setError, fieldsState, recaptchaValue, notificationContext]);
 
-	return !alreadyRegistered ? (isFormShowing ?
-    <ModalForm onFieldChange={onFieldChange}
+	return !alreadyRegistered ? <>
+    <Form hide />
+    <ModalForm show={isFormShowing}
+               onFieldChange={onFieldChange}
                onSubmit={onSubmit}
                setRecaptchaValue={setRecaptchaValue}
                setIsFormShowing={setIsFormShowing}
                mainText={mainText}
                subText={subText}
-    /> :
-    renderCta(showForm, mainText))
-    : null;
+    />
+    {!isFormShowing ? <RegCta showForm={showForm} mainText={mainText} /> : null}
+    </> : null;
 };
