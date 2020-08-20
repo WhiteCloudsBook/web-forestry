@@ -1,4 +1,9 @@
 ---
 label: Authors
 hide_body: true
-fields: []
+fields:
+- name: author
+  type: include
+  config: {}
+  template: author
+  label: author
