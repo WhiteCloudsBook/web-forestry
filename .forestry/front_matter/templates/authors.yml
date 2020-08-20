@@ -2,7 +2,7 @@
 label: Authors
 hide_body: true
 fields:
-- name: aa
+- name: authors
   type: list
   config:
     use_select: false
