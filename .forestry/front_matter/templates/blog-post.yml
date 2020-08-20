@@ -32,8 +32,8 @@ fields:
     required: true
     options: []
     source:
-      type: pages
-      section: authors-51900e9d-6ea2-4934-bd76-0badd26515d8
+      type: documents
+      section: author-list
       file: content/data/authors.yaml
       path: ''
   label: author
