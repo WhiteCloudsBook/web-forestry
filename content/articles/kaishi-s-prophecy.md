@@ -6,6 +6,7 @@ banner: "/v1597333240/site/cover-2020_c0eh9u.png"
 date: 2020-08-13T21:37:38.000+00:00
 hero_image: "/content/images/sarah-dorweiler-9Z1KRIfpBTM-unsplash.jpg"
 author: Yoav Niran
+featured: true
 
 ---
 _At a time calculated by the star dwellers_
