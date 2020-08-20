@@ -143,9 +143,10 @@ const ModalForm = ({ onFieldChange, onSubmit, setRecaptchaValue, setIsFormShowin
   >
     <CloseButton size="large" onClick={closeModal}/>
       <Form
-        name="newsletter"
+        name="contactlist"
         method="POST"
         data-netlify="true"
+        data-netlify-honeypot="bot-field"
         data-netlify-recaptcha="true"
         onSubmit={onSubmit}>
 

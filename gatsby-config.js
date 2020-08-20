@@ -1,4 +1,4 @@
-const config = require("./config.json")
+const config = require("./config.json");
 // const infoData = require("./content/data/info.json")
 
 module.exports = {
