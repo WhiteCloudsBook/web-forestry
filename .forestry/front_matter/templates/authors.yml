@@ -2,8 +2,16 @@
 label: Authors
 hide_body: true
 fields:
-- name: author
-  type: include
-  config: {}
-  template: author
-  label: author
+- name: authors
+  type: field_group_list
+  fields:
+  - name: author
+    type: include
+    config: {}
+    template: author
+    label: author
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: authors
