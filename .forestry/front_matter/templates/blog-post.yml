@@ -34,7 +34,7 @@ fields:
     source:
       type: documents
       section: author-list
-      file: content/data/authors.yaml
+      file: 
       path: ''
   label: author
   description: Enter author of post
