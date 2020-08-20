@@ -8,7 +8,7 @@ import EmailRegForm from "../components/EmailRegForm";
 import PageSeparator from "../components/PageSeparator";
 import { HTMLContent } from "../components/Content";
 import { pageWidthCss } from "../common/styles";
-import withLayoutAndData from "./generic/withLayoutAndData";
+import withLayoutAndData, { getPropsForPage } from "./generic/withLayoutAndData";
 import SocialLinks from "../components/SocialLinks";
 
 const MainSection = styled.section`
@@ -23,6 +23,7 @@ const Blurb = styled(HTMLContent)`
 `;
 
 const HomePageTemplate = ({ page }) => {
+  console.log("!!!!!!!! HOME ", page);
   return <>
     <Picture path={page.banner}/>
 
@@ -41,6 +42,8 @@ const HomePageTemplate = ({ page }) => {
 
       <Heading level={2} color="brand">Blurb</Heading>
       <Blurb content={page.bookBlurb}/>
+      <p>Start reading the book <a style={{ textDecoration: "underline" }} href={page.readBookUrl}
+                                   target="_blank" rel="noreferrer"><strong>here</strong></a>.</p>
 
       <PageSeparator/>
 
@@ -68,7 +71,7 @@ export const pageQuery = graphql`
                 bookBlurb
             }
         }
-        posts: allMarkdownRemark(sort: {order: [DESC, DESC], fields: [frontmatter___featured, frontmatter___date]}, filter: {frontmatter: {type: {eq: "article"}}}, limit: 3) {
+        articles: allMarkdownRemark(sort: {order: [DESC, DESC], fields: [frontmatter___featured, frontmatter___date]}, filter: {frontmatter: {type: {eq: "article"}}}, limit: 3) {
             edges {
                 ...ArticleListItem
             }
@@ -76,4 +79,8 @@ export const pageQuery = graphql`
     }`;
 
 
-export default withLayoutAndData()(HomePageTemplate);
+export default withLayoutAndData((props) => {
+  const pageProps = getPropsForPage(props);
+  console.log("!!!!!!!!!! props = ", props);
+  return pageProps;
+})(HomePageTemplate);

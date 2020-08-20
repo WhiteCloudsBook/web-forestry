@@ -31,7 +31,6 @@ export default ({ className }) => {
     {Object.entries(SERVICES).map(([name, config]) => {
       const Icon = ICONS[name];
 
-      console.log("!!!!!!!! ", siteMetadata);
       return <a key={config} target="_blank" href={siteMetadata[config]} rel="noopener noreferrer">
         <Icon color="white" />
       </a>;

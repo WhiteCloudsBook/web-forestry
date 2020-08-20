@@ -4,12 +4,10 @@ import useSiteMetadata from "../../components/useSiteMetadata"
 import Layout from "../../components/Layout";
 import { getImageUrl } from "../../common/imageUrl";
 
-// import { getImageUrlFromBanner } from "../templateUtils";
-
-const getPropsForPage = ({data}) => ({
+export const getPropsForPage = ({ data }) => ({
   page: {
     ...data.markdownRemark.frontmatter,
-  }
+  },
 });
 
 export default (converterFn, layoutPropsFn, children, options) =>
@@ -23,7 +21,6 @@ export default (converterFn, layoutPropsFn, children, options) =>
 			const { ogTags, ...restLayout } = layoutProps;
 
 			pageProps.page.banner = "/" + pageProps.page.banner.replace(/\.\.\//g, "")
-        //pageProps.page.image || props.data.markdownRemark.image; //for remote images
 
 			return <Layout title={pageProps.page.title}
 				ogTags={{

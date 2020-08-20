@@ -48,10 +48,14 @@ const GlobalStyles = createGlobalStyle`
 
 	a {
 		text-decoration: none;
-		cursor: pointer
+		cursor: pointer;
 
 		&:hover {
 			${color("brand")}
+		}
+		
+		&:visited {
+		  ${color("brand")}
 		}
 
 		// ${breakpoint("phone")`
