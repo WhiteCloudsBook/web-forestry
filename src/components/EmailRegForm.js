@@ -76,13 +76,13 @@ const FormRowsContainer = styled.div`
 	`}
 `;
 
-const FormLabel = styled.label`
-  margin-right: 6px;
-`;
-
 const FormInput = styled.input`
-    width: 200px;
+    min-width: 300px;
+    width: 70%;    
     margin-right: 20px;
+    height: 46px;
+    line-height: 40px;
+    font-size: 36px;
 `;
 
 const CtaContainer = styled.div`
@@ -122,14 +122,14 @@ const Form = ({ onSubmit, mainText, subText, onFieldChange, setRecaptchaValue, h
 
   <FormRowsContainer>
     <FormRow>
-      <FormLabel htmlFor="name">Name:</FormLabel>
       <FormInput name="name" type="text" required
+                 placeholder="Your name"
                  onChange={onFieldChange}/>
     </FormRow>
 
     <FormRow>
-      <FormLabel htmlFor="email">Email:</FormLabel>
       <FormInput name="email" type="email" required
+                 placeholder="your@email.com"
                  onChange={onFieldChange}/>
     </FormRow>
   </FormRowsContainer>
@@ -176,7 +176,12 @@ const ModalForm = ({ show, onFieldChange, onSubmit, setRecaptchaValue, closeModa
 
   return <Modal isOpen={show} overlayRef={setOverlayRef}
                 style={{
-                  content: { backgroundColor: getColor(theme, "page-bg") },
+                  content: {
+                    top: "10px",
+                    left: "10px",
+                    right: "10px",
+                    bottom: "10px",
+                    backgroundColor: getColor(theme, "page-bg") },
                   overlay: { backgroundColor: getColor(theme, "overlay-bg") }
                 }}
   >
