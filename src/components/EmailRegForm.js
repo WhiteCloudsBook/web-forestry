@@ -144,7 +144,6 @@ const ModalForm = ({ onFieldChange, onSubmit, setRecaptchaValue, setIsFormShowin
     <CloseButton size="large" onClick={closeModal}/>
       <Form
         name="newsletter"
-        action="/contact/newsletter-complete/"
         method="POST"
         data-netlify="true"
         data-netlify-recaptcha="true"
@@ -203,7 +202,7 @@ export default ({ mainText, subText }) => {
     });
 
     setRegisterSuccess();
-  }, []);
+  }, [notificationContext]);
 
 	const onFieldChange = useCallback((e) =>
 		setFields({
@@ -214,8 +213,8 @@ export default ({ mainText, subText }) => {
 	const onSubmit = useCallback((e) => {
 		e.preventDefault();
 
-		const form = e.target,
-			successUrl = form.getAttribute("action");
+		const form = e.target;
+			// successUrl = form.getAttribute("action");
 
 		notificationContext.setNotification(null);
 
@@ -239,19 +238,19 @@ export default ({ mainText, subText }) => {
 						}
 						else {
 							console.log("!!!!!!!!!!! form server response: ", response);
-							// setError("שגיאה קרתה. אנא נסו שוב.");
+							setError("An error occurred. Please try again");
 						}
 					})
 					.catch(err => {
 						console.log("!!!!!!!!! FORM ERROR ", err);
-						// setError("שגיאה קרתה. אנא נסו שוב.");
+            setError("An error occurred. Please try again");
 					});
 			}
 		}
 		else {
-			// setError("נא למלא את כל השדות");
+      setError("Please fill all fields");
 		}
-	}, [setSuccess, fieldsState, recaptchaValue, notificationContext]);
+	}, [setSuccess, setError, fieldsState, recaptchaValue, notificationContext]);
 
 	return !alreadyRegistered ? (isFormShowing ?
     <ModalForm onFieldChange={onFieldChange}
