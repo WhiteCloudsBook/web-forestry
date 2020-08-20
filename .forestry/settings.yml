@@ -17,15 +17,14 @@ sections:
   new_doc_ext: md
   templates:
   - blog-post
+- type: heading
+  label: Data
 - type: document
   path: content/data/authors.yaml
-  label: Author List
+  label: Authors
 - type: document
   path: content/data/info.json
   label: Info Page
-- type: document
-  path: context/authors.yaml
-  label: Authors
 - type: heading
   label: General Config
 - type: document
