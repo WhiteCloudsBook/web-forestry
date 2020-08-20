@@ -13,6 +13,9 @@ fields:
 - type: text
   name: description
   label: description
+- type: text
+  name: logo
+  label: logo
 - name: cloudinaryBase
   type: text
   config:
@@ -33,5 +36,10 @@ fields:
   config:
     required: false
   label: twitterUserUrl
+- name: authorPhoto
+  type: text
+  config:
+    required: false
+  label: authorPhoto
 pages:
 - config.json

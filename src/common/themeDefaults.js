@@ -20,7 +20,7 @@ export const colors = {
 	"overlay-bg": "#56585c",
 	// "brand-bg-ultra-light": "#c3d3c63b",
 	"brand-bg-overlay": "#7eb6c4",
-	// "brand-bg-dark": "#05240b",
+	"brand-bg-dark": "#0d162b",
 	// "light-purple": "#a67fd7c7",
 	// "main": "#2876aeff",
 	text: {

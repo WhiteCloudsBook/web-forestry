@@ -1,37 +1,28 @@
-import React from "react"
-import useSiteMetadata from "./useSiteMetadata"
-import { getImageUrl, getImageSrcset } from "../common/imageUrl"
+import React from "react";
+import useSiteMetadata from "./useSiteMetadata";
+import { getImageUrl, getSourceSrcset } from "../common/imageUrl";
+import Image from "./Image";
 
-const Image = ({ src, alt, ...rest }) => {
-  // const sizesAttr = sizes ?
-  //   Object.entries(sizes)
-  //     .map(([key,val])=>`${key} ${val}px`)
-  //     .join(",") :
-  //   undefined;
+const SIZES = {
+  "(max-width: 500px)": "500",
+  "(max-width: 600px)": "600",
+  "(max-width: 900px)": "900",
+  "(min-width: 900px)": "1200",
+};
 
-  return <img src={src} alt={alt} {...rest}/>
-}
-
-export default ({ responsive = true, path, alt, ...rest }) => {
+export default ({ responsive = true, sizes, path, alt, className, ...rest }) => {
   const { cloudinaryBase } = useSiteMetadata();
 
-  // const baseSrc = `${cloudinaryBase}q_auto,f_auto`
-
-  const sizes = {
-    "(max-width: 500px)": "500",
-    "(max-width: 600px)": "600",
-    "(max-width: 900px)": "900",
-    "(min-width: 900px)": "1200",
-  }
+  sizes = sizes || SIZES;
 
   return responsive ?
-    <picture>
+    <picture className={className}>
       {Object.entries(sizes).map(([key, width]) =>
-        <source srcSet={getImageSrcset(cloudinaryBase, path, width, true)}
+        <source srcSet={getSourceSrcset(cloudinaryBase, path, width, true)}
                 media={key}
                 key={key}
         />)}
       <Image src={getImageUrl(cloudinaryBase, path)} alt={alt} {...rest}/>
     </picture> :
-    <Image src={getImageUrl(cloudinaryBase, path)} alt={alt} {...rest}/>
+    <Image className={className} src={getImageUrl(cloudinaryBase, path)} alt={alt} {...rest}/>;
 };

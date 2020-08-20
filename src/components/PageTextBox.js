@@ -2,13 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { color } from "../theme";
 import { pageWidthCss } from "../common/styles";
-import useSiteMetadata from "./useSiteMetadata";
+import Image from "./Image";
+// import useSiteMetadata from "./useSiteMetadata";
+// ${({ image }) => `background: url("${image}") no-repeat;`}
 
 const Box = styled.div`
-  ${({ image }) => `background: url("${image}") no-repeat;`}
+  position: relative;  
   background-size: cover;
   margin: 20px 0;
-  height: 200px;    
+  overflow: hidden;
+  min-height: 200px;
+  
   ${({ link }) => !link && pageWidthCss}
   
   box-shadow: 1px 7px 6px 0px ${color("border.light", false)};
@@ -24,26 +28,30 @@ const Text = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  position: absolute;
 `;
 
 const Link = styled.a`
   ${pageWidthCss}
 `;
 
+const StyledImage = styled(Image)`
+   position: absolute;
+ `;
+
 const renderBox = ({ text, image, link }) => {
-  return <Box image={image} link={!!link}>
+  return <Box link={!!link}>
+    <StyledImage path={image} sizes={{
+      "(max-width: 900px)": "600",
+      "(min-width: 900px)": "900",
+    }} />
     <Text>{text}</Text>
   </Box>;
 };
 
 export default (props) => {
-  const { cloudinaryBase } = useSiteMetadata();
   const { link } = props;
   let { image } = props;
-
-  if (!image.startsWith("http")) {
-    image = `${cloudinaryBase}${image}`;
-  }
 
   return link ?
     <Link href={link} target="_blank" rel="noreferrer">{renderBox({ ...props, image })}</Link> :

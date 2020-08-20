@@ -8,7 +8,7 @@ import ReCaptcha from "react-google-recaptcha";
 import { breakpoint, getColor } from "../theme";
 import { pageWidthCss } from "../common/styles";
 import { NotificationContext } from "./Notifications/NotificationProvider";
-import PageSeparator from "./PageSeparator";
+import Picture from "./Picture";
 
 Modal.setAppElement("#___gatsby");
 
@@ -105,6 +105,13 @@ const CloseButton = styled(FormClose)`
   top: 5px;
 `;
 
+const ModalPicture = styled(Picture)`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`;
+
 const Form = ({ onSubmit, mainText, subText, onFieldChange, setRecaptchaValue, hide = false }) => <StyledForm
   name="contactlist"
   method="POST"
@@ -143,15 +150,12 @@ const Form = ({ onSubmit, mainText, subText, onFieldChange, setRecaptchaValue, h
     onChange={setRecaptchaValue}/>}
 </StyledForm>;
 
-const RegCta = ({ showForm, mainText }) => <>
-  <CtaContainer>
+const RegCta = ({ showForm, mainText }) => <CtaContainer>
     {/*rendering dummy form for netlify to pick it up and create the submission integration*/}
     <Form hide/>
     <Heading level={3} size="small">{mainText}</Heading>
     <Button label="Register" onClick={showForm}/>
-  </CtaContainer>
-  <PageSeparator/>
-</>;
+  </CtaContainer>;
 
 const ModalForm = ({ show, onFieldChange, onSubmit, setRecaptchaValue, closeModal, mainText, subText }) => {
   const theme = useContext(ThemeContext);
@@ -187,6 +191,8 @@ const ModalForm = ({ show, onFieldChange, onSubmit, setRecaptchaValue, closeModa
   >
     <CloseButton size="large" onClick={closeModal}/>
     <Form onSubmit={onSubmit} mainText={mainText} subText={subText} onFieldChange={onFieldChange} setRecaptchaValue={setRecaptchaValue} />
+
+    <ModalPicture path="/v1597963949/site/nova_sdyc2e.jpg"/>
   </Modal>;
 };
 

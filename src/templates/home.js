@@ -28,17 +28,16 @@ const HomePageTemplate = ({ page }) => {
 
     <MainSection>
       <SocialLinks/>
+      <PageSeparator/>
 
       <PageTextBox text={page.crowdFundingText}
-                   image="w_1000/v1597496828/site/stars-people_av6uaw.png"/>
+                   image="/v1597496828/site/stars-people_av6uaw.png"/>
 
       <EmailRegForm mainText={page.registerCtaText} subText={page.registerCtaSubText}/>
 
       <PageTextBox text={page.readBookText}
                    link={page.readBookUrl}
-                   image="w_1000/v1597745087/site/jonathan-borba-3eC5n6gHwe8-unsplash_npjctj.png"/>
-
-      <PageSeparator/>
+                   image="/v1597745087/site/jonathan-borba-3eC5n6gHwe8-unsplash_npjctj.png"/>
 
       <Heading level={2} color="brand">Blurb</Heading>
       <Blurb content={page.bookBlurb}/>
@@ -48,6 +47,7 @@ const HomePageTemplate = ({ page }) => {
       <Heading level={2} color="brand">Articles</Heading>
       {/*<ArticleList articles={}/>*/}
 
+      <PageSeparator/>
       <EmailRegForm mainText={page.registerCtaText} subText={page.registerCtaSubText}/>
     </MainSection>
   </>;
