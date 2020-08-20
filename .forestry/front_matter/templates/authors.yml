@@ -5,15 +5,15 @@ fields:
 - name: authors
   type: field_group_list
   fields:
-  - name: author
-    type: include
-    config: {}
-    template: author
-    label: author
+  - name: name
+    type: text
+    config:
+      required: true
+    label: author name
   config:
     min: 
     max: 
-    labelField: name
+    labelField: 
   label: authors
 pages:
 - content/data/authors.yaml
