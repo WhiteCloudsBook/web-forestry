@@ -2,28 +2,12 @@
 label: Authors
 hide_body: true
 fields:
-- name: authors
-  type: field_group_list
-  fields:
-  - name: name
-    type: text
-    config:
-      required: true
-    label: author name
+- name: aa
+  type: list
   config:
+    use_select: false
     min: 
     max: 
-    labelField: 
   label: authors
-- name: a2
-  type: field_group
-  config: {}
-  fields:
-  - name: author_name
-    type: text
-    config:
-      required: false
-    label: author name
-  label: a2
 pages:
 - content/data/authors.yaml
