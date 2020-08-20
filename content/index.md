@@ -5,6 +5,8 @@ crowdFundingText: Your help is needed! Crowdfunding project coming soon...
 banner: "/v1597784586/site/banner_xmi4qj.png"
 readBookText: Click here to read the first part of the book
 readBookUrl: https://www.wattpad.com/story/212341112-white-clouds
+registerCtaText: Register to be notified about important milestones
+registerCtaSubText: We won't ever spam or abuse your email address
 bookBlurb: "<p>Five centuries after a fraction of humanity left a dying Earth behind
   - humans dwell aboard giant space stations called <strong>CLOUDS</strong>.</p><p>What
   starts as a typical day for <strong>WENDALL SYING</strong> turns into a nightmare

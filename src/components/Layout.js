@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import GlobalStyles from "./GlobalStyles";
 import OpenGraph from "./OpenGraph";
 // import SocialFollowUs from "../SocialFollowUs/SocialFollowUs";
-// import NotificationProvider from "../Notifications/NotificationProvider";
+import NotificationProvider from "./Notifications/NotificationProvider";
 import theme, { color } from "../theme.js";
 
 export const Main = styled.main`
@@ -16,7 +16,7 @@ export const Main = styled.main`
   max-width: 1024px;
   margin: 0 auto;
   ${color("main-bg", "background-color")}
-  box-shadow: 0px 5px 10px 0px ${color("border.light", false)};
+  box-shadow: 0px 5px 10px 0px ${color("border.medium", false)};
 `;
 
 const Layout = (props) => {
@@ -96,14 +96,18 @@ const Layout = (props) => {
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
           <meta name="apple-mobile-web-app-status-bar-style" content="#22d640" />
 
-          <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Frank+Ruhl+Libre:400,700&display=swap" rel="stylesheet" />
+          {/*<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Frank+Ruhl+Libre:400,700&display=swap" rel="stylesheet" />*/}
+          <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
 
           <link href="/manifest.json" rel="manifest" />
         </Helmet>
         <OpenGraph tags={props.ogTags} />
 
+
         <Main>
+          <NotificationProvider>
             {props.children}
+          </NotificationProvider>
         </Main>
         <Footer />
       </div>

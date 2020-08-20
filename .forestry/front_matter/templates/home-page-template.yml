@@ -51,6 +51,22 @@ fields:
     schema:
       format: markdown
   label: read book url
+- name: registerCtaText
+  type: textarea
+  config:
+    required: true
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: register call-to-action text
+- name: registerCtaSubText
+  type: textarea
+  config:
+    required: true
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: register call-to-action sub text
 - name: bookBlurb
   type: textarea
   default: ''

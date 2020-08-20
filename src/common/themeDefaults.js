@@ -14,20 +14,21 @@ export const colors = {
   "page-bg": "#232429",
   "main-bg": "#2e2f32",
 	// "brand-gradient-dark": "linear-gradient(to right, #22d640 0%,#247f34 100%);",
-	// "brand": "#22d640",
-	// "brand-dark": "#0e751f",
-	// "brand-bg-light": "#c3d3c6",
+	"brand": "#2876aeff",
+	"brand-dark": "#0f2c62ff",
+  "focus": "#105c71ff",
+	"overlay-bg": "#56585c",
 	// "brand-bg-ultra-light": "#c3d3c63b",
-	// "brand-bg-overlay": "rgba(5,36,11,0.55)",
+	"brand-bg-overlay": "#7eb6c4",
 	// "brand-bg-dark": "#05240b",
 	// "light-purple": "#a67fd7c7",
-	// "main": "#96a7a1",
+	// "main": "#2876aeff",
 	text: {
 		light: "#fff",
 	},
 	border: {
-		light: "#5f5858",
-		medium: "#1999",
+		light: "#435366",
+		medium: "#5f5858", // "#1999",
 		dark: "#2a6b17f0",
 	}
 };

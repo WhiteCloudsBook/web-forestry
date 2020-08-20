@@ -21,7 +21,8 @@ const Notification = ({ isError, text }) => {
 	console.log("!!!!!!!!!!! ", { isError, text });
 
 	return <Container
-		background={isError ? "status-error" : "brand-bg-light"}
+		background={isError ? "status-error" : "brand-bg-overlay"}
+    color={isError ? "white" : "black"}
 		pad="small"
 		elevation="large"
 		animation="fadeIn"

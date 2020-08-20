@@ -29,11 +29,13 @@
     "gatsby-transformer-sharp": "^2.5.7",
     "gatsby-transformer-yaml": "^2.4.6",
     "grommet": "^2.14.0",
+    "grommet-icons": "^4.4.0",
     "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-google-recaptcha": "^2.1.0",
     "react-helmet": "^6.1.0",
+    "react-modal": "^3.11.2",
     "styled-components": "^5.1.1",
     "typescript": "^3.9.5",
     "webpack": "^4.43.0"

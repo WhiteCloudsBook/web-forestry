@@ -2,9 +2,11 @@ import { get as _get } from "lodash";
 import { css } from "styled-components";
 import { colors, breakpoints } from "./common/themeDefaults";
 
-export const FONT_FAMILY = "'Frank Ruhl Libre', serif";
+export const FONT_FAMILY = "'Open Sans', sans-serif";
+  //"'Frank Ruhl Libre', serif";
 
-export const HEADING_FAMILY = "'Amatic SC', cursive";
+export const HEADING_FAMILY =  "'Open Sans', sans-serif";
+  //"'Amatic SC', cursive";
 
 const getBreakpintValue = (br, theme) => {
 	let value;

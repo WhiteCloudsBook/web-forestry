@@ -15,6 +15,8 @@ const Box = styled.div`
   margin: 20px 0;
   height: 200px;    
   ${({ link }) => !link && widthCss}
+  
+  box-shadow: 1px 7px 6px 0px ${color("border.light", false)};
 `;
 
 const Text = styled.div`

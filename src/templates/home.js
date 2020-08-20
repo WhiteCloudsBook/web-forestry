@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import Picture from "../components/Picture";
 import PageTextBox from "../components/PageTextBox";
 import withLayoutAndData from "./generic/withLayoutAndData";
+import EmailRegForm from "../components/EmailRegForm";
 
 
 const MainSection = styled.section`
@@ -24,7 +25,9 @@ const HomePageTemplate = (props) => {
 
     <MainSection>
       <PageTextBox text={props.page.crowdFundingText}
-        image="w_1000/v1597496828/site/stars-people_av6uaw.png"/>
+                   image="w_1000/v1597496828/site/stars-people_av6uaw.png"/>
+
+      <EmailRegForm mainText={props.page.registerCtaText} subText={props.page.registerCtaSubText}/>
 
       <PageTextBox text={props.page.readBookText}
                    link={props.page.readBookUrl}
@@ -43,6 +46,8 @@ export const pageQuery = graphql`
                 crowdFundingText
                 readBookText
                 readBookUrl
+                registerCtaText
+                registerCtaSubText
                 bookBlurb
             }
         }
