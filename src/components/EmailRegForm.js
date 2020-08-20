@@ -158,14 +158,14 @@ const ModalForm = ({ onFieldChange, onSubmit, setRecaptchaValue, setIsFormShowin
 
         <FormRowsContainer>
           <FormRow>
-            <FormLabel htmlFor="rf-name">Name:</FormLabel>
-            <FormInput name="rf-name" type="text" required
+            <FormLabel htmlFor="name">Name:</FormLabel>
+            <FormInput name="name" type="text" required
                        onChange={onFieldChange}/>
           </FormRow>
 
           <FormRow>
-            <FormLabel htmlFor="rf-email">Email:</FormLabel>
-            <FormInput name="rf-email" type="email" required
+            <FormLabel htmlFor="email">Email:</FormLabel>
+            <FormInput name="email" type="email" required
                        onChange={onFieldChange}/>
           </FormRow>
         </FormRowsContainer>
