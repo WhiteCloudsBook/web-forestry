@@ -1,20 +1,15 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { color } from "../theme";
+import { pageWidthCss } from "../common/styles";
 import useSiteMetadata from "./useSiteMetadata";
-
-const widthCss = css`
-  width: 80%;
-  max-width: 600px;
-  min-width: 400px;
-`;
 
 const Box = styled.div`
   ${({ image }) => `background: url("${image}") no-repeat;`}
   background-size: cover;
   margin: 20px 0;
   height: 200px;    
-  ${({ link }) => !link && widthCss}
+  ${({ link }) => !link && pageWidthCss}
   
   box-shadow: 1px 7px 6px 0px ${color("border.light", false)};
 `;
@@ -32,7 +27,7 @@ const Text = styled.div`
 `;
 
 const Link = styled.a`
-  ${widthCss}
+  ${pageWidthCss}
 `;
 
 const renderBox = ({ text, image, link }) => {

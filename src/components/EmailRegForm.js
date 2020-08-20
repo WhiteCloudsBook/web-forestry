@@ -1,12 +1,14 @@
 /* eslint no-console: 0 */
 import React, { useContext, useState, useCallback, useEffect } from "react";
 import styled from "styled-components";
-import { Button, ThemeContext } from "grommet";
-import ReCaptcha from "react-google-recaptcha";
-import { NotificationContext } from "./Notifications/NotificationProvider";
-import { breakpoint, getColor } from "../theme";
-import Modal from "react-modal";
+import { Button, ThemeContext, Heading } from "grommet";
 import { FormClose } from "grommet-icons/index";
+import Modal from "react-modal";
+import ReCaptcha from "react-google-recaptcha";
+import { breakpoint, getColor } from "../theme";
+import { pageWidthCss } from "../common/styles";
+import { NotificationContext } from "./Notifications/NotificationProvider";
+import PageSeparator from "./PageSeparator";
 
 Modal.setAppElement("#___gatsby");
 
@@ -87,21 +89,14 @@ const CtaContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 80%;
-  max-width: 600px;
-  min-width: 400px;
+  
+  ${pageWidthCss}
 `;
 
 const encode = (data) => Object.keys(data)
 	.map((key) =>
 		`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
 	.join("&");
-
-const RegCta = ({ showForm, mainText }) =>
-  <CtaContainer>
-    <h3>{mainText}</h3>
-    <Button label="Register" onClick={showForm}/>
-  </CtaContainer>;
 
 const CloseButton = styled(FormClose)`
 	cursor: pointer;
@@ -148,13 +143,19 @@ const Form = ({ onSubmit, mainText, subText, onFieldChange, setRecaptchaValue, h
     onChange={setRecaptchaValue}/>}
 </StyledForm>;
 
-const ModalForm = ({ show, onFieldChange, onSubmit, setRecaptchaValue, setIsFormShowing, mainText, subText }) => {
+const RegCta = ({ showForm, mainText }) => <>
+  <CtaContainer>
+    {/*rendering dummy form for netlify to pick it up and create the submission integration*/}
+    <Form hide/>
+    <Heading level={3}>{mainText}</Heading>
+    <Button label="Register" onClick={showForm}/>
+  </CtaContainer>
+  <PageSeparator/>
+</>;
+
+const ModalForm = ({ show, onFieldChange, onSubmit, setRecaptchaValue, closeModal, mainText, subText }) => {
   const theme = useContext(ThemeContext);
   const [overlayRef, setOverlayRef] = useState();
-
-  const closeModal = useCallback(() => {
-    setIsFormShowing(false);
-  }, [setIsFormShowing]);
 
   useEffect(() => {
     const onOverlayClick = (e) => {
@@ -200,13 +201,18 @@ export default ({ mainText, subText }) => {
 			text,
 		}), [notificationContext]);
 
-	const setSuccess = useCallback(() => {
+  const closeModal = useCallback(() => {
+    setIsFormShowing(false);
+  }, [setIsFormShowing]);
+
+  const setSuccess = useCallback(() => {
 	  notificationContext.setNotification({
       text: "Successfully registered. Thank you."
     });
 
+    closeModal();
     setRegisterSuccess();
-  }, [notificationContext]);
+  }, [notificationContext, closeModal]);
 
 	const onFieldChange = useCallback((e) =>
 		setFields({
@@ -255,12 +261,11 @@ export default ({ mainText, subText }) => {
 	}, [setSuccess, setError, fieldsState, recaptchaValue, notificationContext]);
 
 	return !alreadyRegistered ? <>
-    <Form hide />
     <ModalForm show={isFormShowing}
                onFieldChange={onFieldChange}
                onSubmit={onSubmit}
                setRecaptchaValue={setRecaptchaValue}
-               setIsFormShowing={setIsFormShowing}
+               closeModal={closeModal}
                mainText={mainText}
                subText={subText}
     />

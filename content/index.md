@@ -3,7 +3,7 @@ title: Home
 description: home page for the White Clouds Sci-fi novel by Yoav Niran
 crowdFundingText: Your help is needed! Crowdfunding project coming soon...
 banner: "/v1597784586/site/banner_xmi4qj.png"
-readBookText: Click here to read the first part of the book
+readBookText: Click here to read the first part of the book on Wattpad
 readBookUrl: https://www.wattpad.com/story/212341112-white-clouds
 registerCtaText: Register to be notified about important milestones
 registerCtaSubText: We won't ever spam or abuse your email address

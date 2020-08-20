@@ -54,9 +54,9 @@ const GlobalStyles = createGlobalStyle`
 			${color("brand")}
 		}
 
-		${breakpoint("phone")`
-			text-decoration: underline;
-		`}
+		// ${breakpoint("phone")`
+		// 	text-decoration: underline;
+		// `}
 	}
 
 	img {

@@ -27,8 +27,6 @@ const Layout = (props) => {
     props.titleTemplateOverride :
     `${props.titleTemplate ? props.titleTemplate : "%s"} | ${title}`;
 
-  console.log("!!!! RENDERING PAGE LAYOUT - ", { props, title, titleTemplate });
-
   return (
     <Grommet theme={theme}>
       <GlobalStyles />

@@ -1,11 +1,14 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
+import { Heading } from "grommet";
 import Picture from "../components/Picture";
 import PageTextBox from "../components/PageTextBox";
-import withLayoutAndData from "./generic/withLayoutAndData";
 import EmailRegForm from "../components/EmailRegForm";
-
+import PageSeparator from "../components/PageSeparator";
+import { HTMLContent } from "../components/Content";
+import { pageWidthCss } from "../common/styles";
+import withLayoutAndData from "./generic/withLayoutAndData";
 
 const MainSection = styled.section`
   width: 100%;
@@ -14,22 +17,29 @@ const MainSection = styled.section`
   align-items: center;
 `;
 
-const HomePageTemplate = (props) => {
+const Blurb = styled(HTMLContent)`
+  ${pageWidthCss}
+`;
 
-  console.log("!!!!!! rendering home page ", props);
-
+const HomePageTemplate = ({ page }) => {
   return <>
-    <Picture path={props.page.banner}/>
+    <Picture path={page.banner}/>
 
     <MainSection>
-      <PageTextBox text={props.page.crowdFundingText}
+      <PageTextBox text={page.crowdFundingText}
                    image="w_1000/v1597496828/site/stars-people_av6uaw.png"/>
 
-      <EmailRegForm mainText={props.page.registerCtaText} subText={props.page.registerCtaSubText}/>
+      <EmailRegForm mainText={page.registerCtaText} subText={page.registerCtaSubText}/>
 
-      <PageTextBox text={props.page.readBookText}
-                   link={props.page.readBookUrl}
+      <PageTextBox text={page.readBookText}
+                   link={page.readBookUrl}
                    image="w_1000/v1597745087/site/jonathan-borba-3eC5n6gHwe8-unsplash_npjctj.png"/>
+
+      <PageSeparator/>
+
+      <Heading level={2} color="brand">Blurb</Heading>
+      <Blurb content={page.bookBlurb}/>
+
     </MainSection>
   </>;
 };
