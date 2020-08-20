@@ -15,5 +15,15 @@ fields:
     max: 
     labelField: 
   label: authors
+- name: a2
+  type: field_group
+  config: {}
+  fields:
+  - name: author_name
+    type: text
+    config:
+      required: false
+    label: author name
+  label: a2
 pages:
 - content/data/authors.yaml
