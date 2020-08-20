@@ -1,8 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
-import { color } from "../theme";
-import Layout from "../components/Layout";
 import Picture from "../components/Picture";
 import PageTextBox from "../components/PageTextBox";
 import withLayoutAndData from "./generic/withLayoutAndData";
@@ -20,7 +18,7 @@ const HomePageTemplate = (props) => {
 
   console.log("!!!!!! rendering home page ", props);
 
-  return <Layout>
+  return <>
     <Picture path={props.page.banner}/>
 
     <MainSection>
@@ -33,7 +31,7 @@ const HomePageTemplate = (props) => {
                    link={props.page.readBookUrl}
                    image="w_1000/v1597745087/site/jonathan-borba-3eC5n6gHwe8-unsplash_npjctj.png"/>
     </MainSection>
-  </Layout>;
+  </>;
 };
 
 export const pageQuery = graphql`

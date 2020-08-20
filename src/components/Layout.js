@@ -21,20 +21,20 @@ export const Main = styled.main`
 
 const Layout = (props) => {
 
-  console.log("!!!! RENDERING PAGE LAYOUT - ", props);
-
   const { title, description } = useSiteMetadata();
 
   const titleTemplate = props.titleTemplateOverride ?
     props.titleTemplateOverride :
     `${props.titleTemplate ? props.titleTemplate : "%s"} | ${title}`;
 
+  console.log("!!!! RENDERING PAGE LAYOUT - ", { props, title, titleTemplate });
+
   return (
     <Grommet theme={theme}>
       <GlobalStyles />
       <div>
         <Helmet titleTemplate={titleTemplate}>
-          <title>{`${props.title} - ${title}`}</title>
+          <title>{props.title}</title>
 
           <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials" />
           {/*<link rel="preconnect" href="https://adservice.google.com" crossorigin="use-credentials" />*/}
@@ -116,38 +116,3 @@ const Layout = (props) => {
 };
 
 export default Layout;
-
-
-
-
-
-
-
-
-// import React from "react"
-// import Header from "./Header"
-// import Helmet from "react-helmet"
-// import useSiteMetadata from "../static_queries/useSiteMetadata"
-// import layoutStyles from "../styles/components/layout.module.scss"
-//
-// export default function Layout(props) {
-//   const { title, description } = useSiteMetadata()
-//   return (
-//     <section
-//       className={`${layoutStyles.layout} ${
-//         props.page === "info" &&
-//         layoutStyles.info_page}`}
-//       style={{
-//         backgroundColor: props.bgColor,
-//       }}
-//     >
-//       <Helmet>
-//         <html lang="en" />
-//         <title>{title}</title>
-//         <meta name="description" content={description} />
-//       </Helmet>
-//       <Header page={props.page} title={title} />
-//       <div className={layoutStyles.content}>{props.children}</div>
-//     </section>
-//   )
-// }
