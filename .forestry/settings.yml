@@ -23,6 +23,10 @@ sections:
 - type: document
   path: content/data/info.json
   label: Info Page
+- type: document
+  path: context/authors.yaml
+  label: Authors
+  match: "**/*"
 - type: heading
   label: General Config
 - type: document
