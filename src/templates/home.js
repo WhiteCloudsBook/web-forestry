@@ -68,11 +68,11 @@ export const pageQuery = graphql`
                 bookBlurb
             }
         }
-#        posts: allMarkdownRemark(sort: {order: [DESC, DESC], fields: [frontmatter___featuredpost, frontmatter___date]}, filter: {frontmatter: {type: {eq: "article"}}}, limit: 3) {
-#            edges {
-#                ...FeaturedContent
-#            }
-#        }
+        posts: allMarkdownRemark(sort: {order: [DESC, DESC], fields: [frontmatter___featured, frontmatter___date]}, filter: {frontmatter: {type: {eq: "article"}}}, limit: 3) {
+            edges {
+                ...ArticleListItem
+            }
+        }
     }`;
 
 
