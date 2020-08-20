@@ -48,5 +48,8 @@ fields:
     time_format: 
     display_utc: false
   default: now
+- name: featured
+  type: boolean
+  label: featured
 pages:
 - content/articles/kaishi-s-prophecy.md
