@@ -23,5 +23,15 @@ fields:
   config:
     required: false
   label: fbPageId
+- name: facebookPageUrl
+  type: text
+  config:
+    required: false
+  label: facebookPageUrl
+- name: twitterUserUrl
+  type: text
+  config:
+    required: false
+  label: twitterUserUrl
 pages:
 - config.json

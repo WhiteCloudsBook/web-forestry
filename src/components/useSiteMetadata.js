@@ -11,6 +11,8 @@ const useSiteMetadata = () => {
                     description
                     fbPageId
                     cloudinaryBase
+                    facebookPageUrl
+                    twitterUserUrl
 #                    social{
 #                        twitter
 #                        facebook

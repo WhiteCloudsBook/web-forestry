@@ -9,6 +9,7 @@ import PageSeparator from "../components/PageSeparator";
 import { HTMLContent } from "../components/Content";
 import { pageWidthCss } from "../common/styles";
 import withLayoutAndData from "./generic/withLayoutAndData";
+import SocialLinks from "../components/SocialLinks";
 
 const MainSection = styled.section`
   width: 100%;
@@ -26,6 +27,8 @@ const HomePageTemplate = ({ page }) => {
     <Picture path={page.banner}/>
 
     <MainSection>
+      <SocialLinks/>
+
       <PageTextBox text={page.crowdFundingText}
                    image="w_1000/v1597496828/site/stars-people_av6uaw.png"/>
 
@@ -40,6 +43,12 @@ const HomePageTemplate = ({ page }) => {
       <Heading level={2} color="brand">Blurb</Heading>
       <Blurb content={page.bookBlurb}/>
 
+      <PageSeparator/>
+
+      <Heading level={2} color="brand">Articles</Heading>
+      {/*<ArticleList articles={}/>*/}
+
+      <EmailRegForm mainText={page.registerCtaText} subText={page.registerCtaSubText}/>
     </MainSection>
   </>;
 };
@@ -59,11 +68,11 @@ export const pageQuery = graphql`
                 bookBlurb
             }
         }
-        #        posts: allMarkdownRemark(sort: {order: [DESC, DESC], fields: [frontmatter___featuredpost, frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "blog-post"}}}, limit: 4) {
-        #            edges {
-        #                ...FeaturedContent
-        #            }
-        #        }
+#        posts: allMarkdownRemark(sort: {order: [DESC, DESC], fields: [frontmatter___featuredpost, frontmatter___date]}, filter: {frontmatter: {type: {eq: "article"}}}, limit: 3) {
+#            edges {
+#                ...FeaturedContent
+#            }
+#        }
     }`;
 
 

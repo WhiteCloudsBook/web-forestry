@@ -16,7 +16,7 @@ sections:
   match: "**/*"
   new_doc_ext: md
   templates:
-  - blog-post
+  - article
 - type: heading
   label: Data
 - type: document

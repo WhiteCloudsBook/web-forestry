@@ -147,7 +147,7 @@ const RegCta = ({ showForm, mainText }) => <>
   <CtaContainer>
     {/*rendering dummy form for netlify to pick it up and create the submission integration*/}
     <Form hide/>
-    <Heading level={3}>{mainText}</Heading>
+    <Heading level={3} size="small">{mainText}</Heading>
     <Button label="Register" onClick={showForm}/>
   </CtaContainer>
   <PageSeparator/>

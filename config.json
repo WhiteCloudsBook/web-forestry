@@ -3,5 +3,7 @@
   "title": "White Clouds Book",
   "description": "White Clouds Book - Home on the Web",
   "fbPageId": "whitecloudsbook",
+  "facebookPageUrl": "https://www.facebook.com/whitecloudsbook",
+  "twitterUserUrl": "https://twitter.com/poeticGeek",
   "cloudinaryBase": "https://res.cloudinary.com/whiteclouds/image/upload/"
 }
