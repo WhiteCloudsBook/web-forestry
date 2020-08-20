@@ -45,18 +45,18 @@ module.exports = {
         path: `${__dirname}/content/data`,
       },
     },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: "images",
+    //     path: `${__dirname}/content/images`,
+    //   },
+    // },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-plugin-sharp",
       options: {
-        name: "images",
-        path: `${__dirname}/content/images`,
+        defaultQuality: 75,
       },
-    },
-    {
-      resolve: "gatsby-plugin-sharp", 
-      options: {
-        defaultQuality: 75
-      }
     },
     `gatsby-transformer-sharp`,
     "gatsby-plugin-styled-components",
