@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext, useCallback } from "react";
 import styled from "styled-components";
 import { Box } from "grommet";
 import { FormClose } from "grommet-icons";
+import { NotificationContext } from "./NotificationProvider";
 
 const Container = styled(Box)`
 	position: fixed;
@@ -18,7 +19,13 @@ const CloseButton = styled(FormClose)`
 `;
 
 const Notification = ({ isError, text }) => {
+  const notificationContext = useContext(NotificationContext);
+
 	console.log("!!!!!!!!!!! ", { isError, text });
+
+	const clearNotification = useCallback(()=>{
+    notificationContext.setNotification(null);
+  }, [notificationContext]);
 
 	return <Container
 		background={isError ? "status-error" : "brand-bg-overlay"}
@@ -31,7 +38,7 @@ const Notification = ({ isError, text }) => {
 		align="center"
 		border={{ color: (isError ? "neutral-4" : "brand-dark") }}>
 		{text}
-		<CloseButton color="white" />
+		<CloseButton color="white" onClick={clearNotification}/>
 	</Container>;
 };
 
