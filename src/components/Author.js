@@ -9,8 +9,13 @@ const AuthorWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  opacity: 0.5;
   
   ${pageWidthCss}
+  
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 const AuthorText = styled.p`

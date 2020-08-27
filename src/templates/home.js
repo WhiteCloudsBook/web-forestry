@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 import { Heading } from "grommet";
-import PageTextBox from "../components/PageTextBox";
 import EmailRegForm from "../components/EmailRegForm";
 import PageSeparator from "../components/PageSeparator";
 import { HTMLContent } from "../components/Content";
@@ -13,7 +12,7 @@ import ArticleList from "../components/ArticleList";
 import PageBanner from "../components/PageBanner";
 import CallsToAction from "../components/CallsToAction";
 
-const Blurb = styled(HTMLContent)`
+const PageContent = styled(HTMLContent)`
   ${pageWidthCss}
 `;
 
@@ -21,16 +20,18 @@ const HomePageTemplate = (props) => {
   const { page } = props;
 
   return <>
-    <PageBanner page={page} />
+    <PageBanner page={page}/>
 
     <MainSection>
       <SocialLinks/>
       <PageSeparator/>
 
+      <PageContent content={page.welcomeText}/>
+
       <CallsToAction {...page} />
 
       <Heading level={2} color="brand">Blurb</Heading>
-      <Blurb content={page.bookBlurb}/>
+      <PageContent content={page.bookBlurb}/>
       <p>Start reading the book <a style={{ textDecoration: "underline" }} href={page.readBookUrl}
                                    target="_blank" rel="noreferrer"><strong>here</strong></a>.</p>
 
@@ -64,6 +65,7 @@ export const pageQuery = graphql`
                 description
                 banner
                 bookBlurb
+                welcomeText
             }
             ...HomeContent
         }
@@ -78,5 +80,5 @@ export default withLayoutAndData((props) => ({
     articles: props.data.articles,
     ...getPropsForPage(props),
   }),
-  { noHeader: true }
+  { noHeader: true },
 )(HomePageTemplate);

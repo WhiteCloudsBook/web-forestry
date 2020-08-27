@@ -4,6 +4,7 @@ import { Heading } from "grommet";
 import { MainSection, pageWidthCss } from "../common/styles";
 import withLayoutAndData, { getPropsForPage } from "./generic/withLayoutAndData";
 import { graphql } from "gatsby";
+import { color } from "../theme";
 import SocialLinks from "../components/SocialLinks";
 import PageSeparator from "../components/PageSeparator";
 import PageBanner from "../components/PageBanner";
@@ -13,6 +14,11 @@ import Author from "../components/Author";
 
 const PageContent = styled(HTMLContent)`
   ${pageWidthCss}
+`;
+
+const ArticleSeparator = styled.hr`
+  width: 15%;
+  border: 1px dashed ${color("border.light", false)};
 `;
 
 const ArticlePageTemplate = (props) => {
@@ -27,11 +33,12 @@ const ArticlePageTemplate = (props) => {
 
       <Heading level={2}>{page.title}</Heading>
 
-      <PageContent content={page.html} />
+      <PageContent content={page.html}/>
+      <ArticleSeparator/>
 
-      <Author name={page.author} />
+      <Author name={page.author}/>
 
-      <PageSeparator />
+      <PageSeparator/>
 
       <CallsToAction {...home} />
     </MainSection>
@@ -56,7 +63,7 @@ export const pageQuery = graphql`
     }`;
 
 
-export default withLayoutAndData((props)=>({
+export default withLayoutAndData((props) => ({
   ...getPropsForPage(props),
   home: props.data.home.frontmatter,
 }))(ArticlePageTemplate);
