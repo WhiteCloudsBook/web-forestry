@@ -76,5 +76,14 @@ fields:
     schema:
       format: html-blocks
   label: book blurb
+- name: welcomeText
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: html-blocks
+  label: Welcome Text
 pages:
 - content/index.md
