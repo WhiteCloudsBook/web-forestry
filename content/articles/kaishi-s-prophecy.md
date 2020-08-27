@@ -2,7 +2,7 @@
 type: article
 title: Kaishi's Prophecy
 description: Kaishi Jantis' prophecy she received from the AI
-banner: "/v1597333240/site/cover-2020_c0eh9u.png"
+banner: "/v1598516643/site/gemma-evans-v5QCF2PFHZ4-unsplash_z6ji9c.jpg"
 date: 2020-08-13T21:37:38.000+00:00
 hero_image: "/content/images/sarah-dorweiler-9Z1KRIfpBTM-unsplash.jpg"
 author: Yoav Niran
