@@ -1,11 +1,12 @@
 ---
 type: article
-date: 2020-08-27T10:06:03Z
+date: 2020-08-27T10:06:03.000+00:00
 title: Yoav's notes
 description: A message from the author of the book
 banner: "/v1598523853/site/authors-notes_sdwkph.png"
 author: Yoav Niran
 featured: true
+bannertransformation: h_400,g_north,c_fill
 
 ---
 **WHITE CLOUDS** is my first novel - A science fiction story that combines mystery, adventure, and detective themes.
