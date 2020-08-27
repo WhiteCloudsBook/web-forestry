@@ -9,20 +9,23 @@ author: Yoav Niran
 featured: true
 
 ---
-_At a time calculated by the star dwellers_
+<div style="text-align: center; font-style: italic;">
 
-_From the garden of hidden truths to the vacuum of absolutes_
+At a time calculated by the star dwellers
 
-_The face of shadow will be the harbinger of what’s to come_
+From the garden of hidden truths to the vacuum of absolutes
 
-_A true intelligence will seek out from the cold_
+The face of shadow will be the harbinger of what’s to come
 
-_It will challenge the natural continuation_ 
+A true intelligence will seek out from the cold
 
-_brink of destruction will be reached_
+It will challenge the natural continuation
 
-_The voyage forward shan’t be interrupted_ 
+brink of destruction will be reached
 
-_The link must be formed_
+The voyage forward shan’t be interrupted 
 
-_The union of the child must be complete_
+The link must be formed
+
+The union of the child must be complete
+</div>

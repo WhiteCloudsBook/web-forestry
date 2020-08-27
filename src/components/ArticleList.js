@@ -15,8 +15,6 @@ const ArticlesContainer = styled.section`
 export default (props) => {
   const articles = transformEdgesNodes(props.articles);
 
-  console.log("found articles", articles);
-
   return <ArticlesContainer>
     {articles.map((article) => <ArticleListItem {...article} key={article.title} />)}
   </ArticlesContainer>;

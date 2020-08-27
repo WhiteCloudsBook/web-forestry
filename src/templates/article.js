@@ -1,8 +1,7 @@
 import React from "react";
 import { Heading } from "grommet";
-// import Picture from "../components/Picture";
 import { MainSection, pageWidthCss } from "../common/styles";
-import withLayoutAndData from "./generic/withLayoutAndData";
+import withLayoutAndData, { getPropsForPage } from "./generic/withLayoutAndData";
 import { graphql } from "gatsby";
 import SocialLinks from "../components/SocialLinks";
 import PageSeparator from "../components/PageSeparator";
@@ -11,6 +10,7 @@ import EmailRegForm from "../components/EmailRegForm";
 import PageBanner from "../components/PageBanner";
 import { HTMLContent } from "../components/Content";
 import styled from "styled-components";
+import CallsToAction from "../components/CallsToAction";
 
 
 const PageContent = styled(HTMLContent)`
@@ -19,7 +19,7 @@ const PageContent = styled(HTMLContent)`
 
 
 const ArticlePageTemplate = (props) => {
-  const { page } = props;
+  const { page, home } = props;
 
   return <>
     <PageBanner page={page} text="WCB Blog"/>
@@ -32,7 +32,9 @@ const ArticlePageTemplate = (props) => {
 
       <PageContent content={page.html}/>
 
-      <EmailRegForm mainText={page.registerCtaText} subText={page.registerCtaSubText}/>
+      <PageSeparator/>
+
+      <CallsToAction {...home} />
     </MainSection>
   </>;
 };
@@ -48,12 +50,13 @@ export const pageQuery = graphql`
             }
             html
         }
-        articles: allMarkdownRemark(sort: {order: [DESC, DESC], fields: [frontmatter___featured, frontmatter___date]}, filter: {frontmatter: {type: {eq: "article"}}}, limit: 3) {
-            edges {
-                ...ArticleListItem
-            }
+        home: markdownRemark(frontmatter: {type: {eq: "home"}}) {
+            ...HomeContent
         }
     }`;
 
 
-export default withLayoutAndData()(ArticlePageTemplate);
+export default withLayoutAndData((props)=>({
+  ...getPropsForPage(props),
+  home: props.data.home.frontmatter,
+}))(ArticlePageTemplate);

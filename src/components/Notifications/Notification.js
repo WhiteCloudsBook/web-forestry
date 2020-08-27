@@ -21,8 +21,6 @@ const CloseButton = styled(FormClose)`
 const Notification = ({ isError, text }) => {
   const notificationContext = useContext(NotificationContext);
 
-	console.log("!!!!!!!!!!! ", { isError, text });
-
 	const clearNotification = useCallback(()=>{
     notificationContext.setNotification(null);
   }, [notificationContext]);

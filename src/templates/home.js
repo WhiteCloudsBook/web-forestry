@@ -11,6 +11,7 @@ import withLayoutAndData, { getPropsForPage } from "./generic/withLayoutAndData"
 import SocialLinks from "../components/SocialLinks";
 import ArticleList from "../components/ArticleList";
 import PageBanner from "../components/PageBanner";
+import CallsToAction from "../components/CallsToAction";
 
 const Blurb = styled(HTMLContent)`
   ${pageWidthCss}
@@ -26,14 +27,15 @@ const HomePageTemplate = (props) => {
       <SocialLinks/>
       <PageSeparator/>
 
-      <PageTextBox text={page.crowdFundingText}
-                   image="/v1597496828/site/stars-people_av6uaw.png"/>
+      <CallsToAction {...page} />
+      {/*<PageTextBox text={page.crowdFundingText}*/}
+      {/*             image="/v1597496828/site/stars-people_av6uaw.png"/>*/}
 
-      <EmailRegForm mainText={page.registerCtaText} subText={page.registerCtaSubText}/>
+      {/*<EmailRegForm mainText={page.registerCtaText} subText={page.registerCtaSubText}/>*/}
 
-      <PageTextBox text={page.readBookText}
-                   link={page.readBookUrl}
-                   image="/v1598015134/site/jonathan-borba-3eC5n6gHwe8-unsplash.png"/>
+      {/*<PageTextBox text={page.readBookText}*/}
+      {/*             link={page.readBookUrl}*/}
+      {/*             image="/v1598015134/site/jonathan-borba-3eC5n6gHwe8-unsplash.png"/>*/}
 
       <Heading level={2} color="brand">Blurb</Heading>
       <Blurb content={page.bookBlurb}/>
@@ -51,6 +53,18 @@ const HomePageTemplate = (props) => {
   </>;
 };
 
+export const HomeContentFragment = graphql`
+    fragment HomeContent on MarkdownRemark {
+        frontmatter {
+            crowdFundingText
+            readBookText
+            readBookUrl
+            registerCtaText
+            registerCtaSubText
+        }
+    }`;
+
+
 export const pageQuery = graphql`
     query HomePageTemplate {
         markdownRemark(frontmatter: {type: {eq: "home" } }) {
@@ -58,13 +72,9 @@ export const pageQuery = graphql`
                 title
                 description
                 banner
-                crowdFundingText
-                readBookText
-                readBookUrl
-                registerCtaText
-                registerCtaSubText
                 bookBlurb
             }
+            ...HomeContent
         }
         articles: allMarkdownRemark(sort: {order: [DESC, DESC], fields: [frontmatter___featured, frontmatter___date]}, filter: {frontmatter: {type: {eq: "article"}}}, limit: 3) {
             edges {
