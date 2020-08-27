@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { color } from "../theme";
-import { pageWidthCss } from "../common/styles";
+import { pageBoxShadow, pageWidthCss } from "../common/styles";
 import Image from "./Image";
-// import useSiteMetadata from "./useSiteMetadata";
-// ${({ image }) => `background: url("${image}") no-repeat;`}
 
 const Box = styled.div`
   position: relative;  
@@ -15,7 +13,7 @@ const Box = styled.div`
   
   ${({ link }) => !link && pageWidthCss}
   
-  box-shadow: 1px 7px 6px 0px ${color("border.light", false)};
+  ${pageBoxShadow}
 `;
 
 const Text = styled.div`

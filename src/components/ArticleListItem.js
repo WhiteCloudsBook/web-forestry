@@ -1,9 +1,9 @@
 import React, { memo } from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import { Text } from "grommet";
 import { breakpoint, color } from "../theme";
-import { pageWidthCss } from "../common/styles";
+import { pageBoxShadow } from "../common/styles";
 import Image from "./Image";
 
 export const ArticleListItemFragment = graphql`
@@ -11,6 +11,7 @@ export const ArticleListItemFragment = graphql`
         node {
             fields {
                 slug
+                pagePath
             }
             frontmatter {
                 title
@@ -21,7 +22,7 @@ export const ArticleListItemFragment = graphql`
         }
     }`;
 
-const ArticleContainer = styled.article`
+const ArticleContainer = styled(Link)`
     width: 80%;
     position: relative;  
     overflow: hidden;
@@ -30,8 +31,16 @@ const ArticleContainer = styled.article`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 20px;
     justify-content: flex-end;
+    margin-bottom: 16px;
+    
+    ${color("white")}
+    
+    &:visited {
+      ${color("white")}
+    }   
+    
+    ${pageBoxShadow}
     
     ${breakpoint("tablet", true)`
       width: 30%;
@@ -65,14 +74,14 @@ const ArticleText = styled(Text)`
   font-weight: bold;
 `;
 
-export default memo(({ banner, title }) => {
-  return <ArticleContainer>
-    <StyledImage path={banner} sizes={{
-      "(max-width: 900px)": "600",
-      "(min-width: 900px)": "900",
-    }}/>
-    <ArticleTextOverlay>
-      <ArticleText>{title}</ArticleText>
-    </ArticleTextOverlay>
-  </ArticleContainer>;
+export default memo(({ banner, title, pagePath }) => {
+  return <ArticleContainer to={pagePath}>
+      <StyledImage path={banner} sizes={{
+        "(max-width: 900px)": "600",
+        "(min-width: 900px)": "900",
+      }}/>
+      <ArticleTextOverlay>
+        <ArticleText>{title}</ArticleText>
+      </ArticleTextOverlay>
+    </ArticleContainer>;
 });

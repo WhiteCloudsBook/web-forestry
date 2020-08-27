@@ -1,34 +1,43 @@
-const path = require("path")
+const path = require("path");
 
 module.exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === "MarkdownRemark") {
-    const slug = path.basename(node.fileAbsolutePath, ".md")
+    const slug = path.basename(node.fileAbsolutePath, ".md");
 
     createNodeField({
-      //same as node: node
       node,
       name: "slug",
       value: slug,
-    })
+    });
+
+    const filePath = node.fileAbsolutePath,
+      type = node.frontmatter.type,
+      pagePath = getFilePublicPath(filePath, type, slug);
+
+    createNodeField({
+      node,
+      name: "pagePath",
+      value: pagePath,
+    });
   }
-}
+};
 
 const getFilePublicPath = (filePath, type, slug) => {
   const m = /content\/([\w\d\/\-\.]+)/
-    .exec(filePath)
+    .exec(filePath);
 
   const path = m && m[1] ?
     m[1].split("/")
       .slice(0, -1)
-      .join("/") : ""
+      .join("/") : "";
 
-  return `/${path}${type !== "home" ? `/${slug}` : ""}`
-}
+  return `/${path}${type !== "home" ? `/${slug}` : ""}`;
+};
 
 module.exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   const response = await graphql(`
     query {
@@ -39,6 +48,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
             fileAbsolutePath
             fields {
               slug
+              pagePath
             }
             frontmatter {
               type
@@ -47,15 +57,14 @@ module.exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
   response.data.allMarkdownRemark.edges.forEach((edge) => {
     const id = edge.node.id,
       fm = edge.node.frontmatter,
       type = fm.type,
-      filePath = edge.node.fileAbsolutePath,
       slug = edge.node.fields.slug,
-      pagePath = getFilePublicPath(filePath, type, slug);
+      pagePath = edge.node.fields.pagePath;
 
     const pageData = {
       component: path.resolve(
@@ -68,8 +77,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
         type,
         pagePath,
       },
-    }
+    };
 
-    createPage(pageData)
-  })
-}
+    createPage(pageData);
+  });
+};

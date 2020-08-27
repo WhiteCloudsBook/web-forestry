@@ -31,6 +31,10 @@ const GlobalStyles = createGlobalStyle`
     	margin: 0;
     	padding: 0;
 	}
+	
+	input {
+	font-family: 'Open Sans', sans-serif;
+	}
 
 	*, *::before, *::after {
 		box-sizing: inherit;

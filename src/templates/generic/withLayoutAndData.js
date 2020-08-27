@@ -10,13 +10,13 @@ export const getPropsForPage = ({ data }) => ({
   },
 });
 
-export default (converterFn, layoutPropsFn, children, options) =>
+export default (converterFn, layoutProps, children, options) =>
 	(Component) =>
 		(props) => {
       const { cloudinaryBase } = useSiteMetadata();
 			const pageProps = converterFn ? converterFn(props) : getPropsForPage(props);
 
-			let layoutProps = layoutPropsFn ? layoutPropsFn(pageProps) : {};
+			layoutProps = layoutProps ? (isFunction(layoutProps) ? layoutProps(pageProps) : layoutProps) : {};
 
 			const { ogTags, ...restLayout } = layoutProps;
 

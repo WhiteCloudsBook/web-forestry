@@ -114,7 +114,12 @@ export default {
 		},
 		padding: {
 			vertical: "4px",
-		}
+		},
+    large: {
+		  border: {
+		    radius: "4px"
+      }
+    }
 	},
 	global: {
 		colors,

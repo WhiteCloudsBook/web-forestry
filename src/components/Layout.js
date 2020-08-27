@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Grommet } from "grommet";
 import useSiteMetadata from "./useSiteMetadata";
 import Footer from "./Footer";
-// import Navbar from "../NavBar/Navbar";
+import Header from "./Header";
 import GlobalStyles from "./GlobalStyles";
 import OpenGraph from "./OpenGraph";
 // import SocialFollowUs from "../SocialFollowUs/SocialFollowUs";
@@ -101,6 +101,7 @@ const Layout = (props) => {
         </Helmet>
         <OpenGraph tags={props.ogTags} />
 
+        {!props.noHeader && <Header/>}
 
         <Main>
           <NotificationProvider>

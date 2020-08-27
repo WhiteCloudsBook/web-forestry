@@ -47,15 +47,24 @@ const setRegisterSuccess = () => {
 	catch (ex) {
 		console.error("failed to store registered flag in local storage");
 	}
-
-	// navigate(navUrl);
 };
 
 const StyledForm = styled.form`
-    display: ${({ hide }) => hide ? "none" : "flex"};
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: ${({ hide }) => hide ? "none" : "block"};
+    width: 100%;
+    position: relative;
+    height: 100%;
+    padding: 40px 10px;
+    max-width: 700px;
+`;
+
+const FormContent = styled.div`
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
 `;
 
 const FormRow = styled.div`
@@ -63,6 +72,10 @@ const FormRow = styled.div`
     align-items: center;
     justify-content: space-evenly;
     margin: 8px 0 12px;
+    
+    button {
+      border-radius: 4px;
+    }
 `;
 
 const FormRowsContainer = styled.div`
@@ -82,7 +95,7 @@ const FormInput = styled.input`
     margin-right: 20px;
     height: 46px;
     line-height: 40px;
-    font-size: 36px;
+    font-size: 22px;
 `;
 
 const CtaContainer = styled.div`
@@ -99,9 +112,10 @@ const encode = (data) => Object.keys(data)
 	.join("&");
 
 const CloseButton = styled(FormClose)`
+  z-index: 1;
 	cursor: pointer;
   position: absolute;
-  right: 5px;
+  right: 0;
   top: 5px;
 `;
 
@@ -110,6 +124,12 @@ const ModalPicture = styled(Picture)`
   bottom: 0;
   left: 0;
   right: 0;
+  top: 0;
+  
+  img {
+    height:  100%;
+    width: 100%;
+  }
 `;
 
 const Form = ({ onSubmit, mainText, subText, onFieldChange, setRecaptchaValue, hide = false }) => <StyledForm
@@ -120,34 +140,37 @@ const Form = ({ onSubmit, mainText, subText, onFieldChange, setRecaptchaValue, h
   data-netlify-recaptcha="true"
   onSubmit={onSubmit}
   hide={hide}>
+  <ModalPicture path="/c_fill,ar_9:16/v1597963949/site/nova_sdyc2e.jpg"/>
 
-  <input type="hidden" name="form-name" value="contactlist"/>
+  <FormContent>
+    <input type="hidden" name="form-name" value="contactlist"/>
 
-  <br/>
-  <h3>{mainText}</h3>
-  <p>{subText}</p>
+    <br/>
+    <h3>{mainText}</h3>
+    <p>{subText}</p>
 
-  <FormRowsContainer>
+    <FormRowsContainer>
+      <FormRow>
+        <FormInput name="name" type="text" required
+                   placeholder="Your name"
+                   onChange={onFieldChange}/>
+      </FormRow>
+
+      <FormRow>
+        <FormInput name="email" type="email" required
+                   placeholder="your@email.com"
+                   onChange={onFieldChange}/>
+      </FormRow>
+    </FormRowsContainer>
+
     <FormRow>
-      <FormInput name="name" type="text" required
-                 placeholder="Your name"
-                 onChange={onFieldChange}/>
+      <Button type="submit" primary label="Register" size="large"/>
     </FormRow>
 
-    <FormRow>
-      <FormInput name="email" type="email" required
-                 placeholder="your@email.com"
-                 onChange={onFieldChange}/>
-    </FormRow>
-  </FormRowsContainer>
-
-  <FormRow>
-    <Button type="submit" primary label="Register"/>
-  </FormRow>
-
-  {!isDev && <ReCaptcha
-    sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY || "xxxx"}
-    onChange={setRecaptchaValue}/>}
+    {!isDev && <ReCaptcha
+      sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY || "xxxx"}
+      onChange={setRecaptchaValue}/>}
+  </FormContent>
 </StyledForm>;
 
 const RegCta = ({ showForm, mainText }) => <CtaContainer>
@@ -185,14 +208,16 @@ const ModalForm = ({ show, onFieldChange, onSubmit, setRecaptchaValue, closeModa
                     left: "10px",
                     right: "10px",
                     bottom: "10px",
-                    backgroundColor: getColor(theme, "page-bg") },
+                    padding: 0,
+                    backgroundColor: getColor(theme, "page-bg"),
+                    display: "flex",
+                    justifyContent: "center",
+                  },
                   overlay: { backgroundColor: getColor(theme, "overlay-bg") }
                 }}
   >
     <CloseButton size="large" onClick={closeModal}/>
     <Form onSubmit={onSubmit} mainText={mainText} subText={subText} onFieldChange={onFieldChange} setRecaptchaValue={setRecaptchaValue} />
-
-    <ModalPicture path="/v1597963949/site/nova_sdyc2e.jpg"/>
   </Modal>;
 };
 

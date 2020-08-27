@@ -7,17 +7,10 @@ import PageTextBox from "../components/PageTextBox";
 import EmailRegForm from "../components/EmailRegForm";
 import PageSeparator from "../components/PageSeparator";
 import { HTMLContent } from "../components/Content";
-import { pageWidthCss } from "../common/styles";
+import { MainSection, pageWidthCss } from "../common/styles";
 import withLayoutAndData, { getPropsForPage } from "./generic/withLayoutAndData";
 import SocialLinks from "../components/SocialLinks";
 import ArticleList from "../components/ArticleList";
-
-const MainSection = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 const Blurb = styled(HTMLContent)`
   ${pageWidthCss}
@@ -26,7 +19,6 @@ const Blurb = styled(HTMLContent)`
 const HomePageTemplate = (props) => {
   const { page } = props;
 
-  console.log("!!!!!!!! HOME ", page);
   return <>
     <Picture path={page.banner}/>
 
@@ -81,12 +73,9 @@ export const pageQuery = graphql`
         }
     }`;
 
-
-export default withLayoutAndData((props) => {
-  const pageProps = getPropsForPage(props);
-  console.log("!!!!!!!!!! props = ", props);
-  return {
+export default withLayoutAndData((props) => ({
     articles: props.data.articles,
-    ...pageProps
-  };
-})(HomePageTemplate);
+    ...getPropsForPage(props),
+  }),
+  { noHeader: true }
+)(HomePageTemplate);
