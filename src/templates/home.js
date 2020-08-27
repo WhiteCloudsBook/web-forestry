@@ -10,6 +10,7 @@ import { HTMLContent } from "../components/Content";
 import { pageWidthCss } from "../common/styles";
 import withLayoutAndData, { getPropsForPage } from "./generic/withLayoutAndData";
 import SocialLinks from "../components/SocialLinks";
+import ArticleList from "../components/ArticleList";
 
 const MainSection = styled.section`
   width: 100%;
@@ -22,7 +23,9 @@ const Blurb = styled(HTMLContent)`
   ${pageWidthCss}
 `;
 
-const HomePageTemplate = ({ page }) => {
+const HomePageTemplate = (props) => {
+  const { page } = props;
+
   console.log("!!!!!!!! HOME ", page);
   return <>
     <Picture path={page.banner}/>
@@ -38,7 +41,7 @@ const HomePageTemplate = ({ page }) => {
 
       <PageTextBox text={page.readBookText}
                    link={page.readBookUrl}
-                   image="/v1597745087/site/jonathan-borba-3eC5n6gHwe8-unsplash_npjctj.png"/>
+                   image="/v1598015134/site/jonathan-borba-3eC5n6gHwe8-unsplash.png"/>
 
       <Heading level={2} color="brand">Blurb</Heading>
       <Blurb content={page.bookBlurb}/>
@@ -47,8 +50,8 @@ const HomePageTemplate = ({ page }) => {
 
       <PageSeparator/>
 
-      <Heading level={2} color="brand">Articles</Heading>
-      {/*<ArticleList articles={}/>*/}
+      <Heading level={2} color="brand">WCB Blog</Heading>
+      <ArticleList {...props}/>
 
       <PageSeparator/>
       <EmailRegForm mainText={page.registerCtaText} subText={page.registerCtaSubText}/>
@@ -82,5 +85,8 @@ export const pageQuery = graphql`
 export default withLayoutAndData((props) => {
   const pageProps = getPropsForPage(props);
   console.log("!!!!!!!!!! props = ", props);
-  return pageProps;
+  return {
+    articles: props.data.articles,
+    ...pageProps
+  };
 })(HomePageTemplate);

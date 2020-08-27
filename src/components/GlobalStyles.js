@@ -104,13 +104,13 @@ const GlobalStyles = createGlobalStyle`
   		margin-block-end: 0;
 	}
 
-
+// padding: 0 20px;
+//\t\t  // ${breakpoint("s-phone")`
+		  // 	padding: 0 5px;
+		  // `}
 	section {
   		display: flex;
-  		padding: 0 20px;
-		  ${breakpoint("s-phone")`
-		  	padding: 0 5px;
-		  `}
+  		
 	}
 
 	hr {
