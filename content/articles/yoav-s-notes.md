@@ -3,7 +3,7 @@ type: article
 date: 2020-08-27T10:06:03Z
 title: Yoav's notes
 description: A message from the author of the book
-banner: ''
+banner: "/v1598523853/site/authors-notes_sdwkph.png"
 author: Yoav Niran
 featured: true
 
