@@ -4,6 +4,8 @@ import Picture from "./Picture";
 import { color } from "../theme";
 
 const Banner = styled(Picture)`
+  height: 300px;
+  
   img {
     width: 100%;
     max-height: 300px;

@@ -102,6 +102,7 @@ const CtaContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  margin: 20px 0;
   
   ${pageWidthCss}
 `;
@@ -176,8 +177,8 @@ const Form = ({ onSubmit, mainText, subText, onFieldChange, setRecaptchaValue, h
 const RegCta = ({ showForm, mainText }) => <CtaContainer>
     {/*rendering dummy form for netlify to pick it up and create the submission integration*/}
     <Form hide/>
-    <Heading level={3} size="small">{mainText}</Heading>
-    <Button label="Register" onClick={showForm}/>
+    <Heading level={3} size="small" margin="none">{mainText}</Heading>
+    <Button label="Register" onClick={showForm} margin="xsmall"/>
   </CtaContainer>;
 
 const ModalForm = ({ show, onFieldChange, onSubmit, setRecaptchaValue, closeModal, mainText, subText }) => {

@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { Heading } from "grommet";
 import { MainSection, pageWidthCss } from "../common/styles";
 import withLayoutAndData, { getPropsForPage } from "./generic/withLayoutAndData";
@@ -7,14 +8,12 @@ import SocialLinks from "../components/SocialLinks";
 import PageSeparator from "../components/PageSeparator";
 import PageBanner from "../components/PageBanner";
 import { HTMLContent } from "../components/Content";
-import styled from "styled-components";
 import CallsToAction from "../components/CallsToAction";
-
+import Author from "../components/Author";
 
 const PageContent = styled(HTMLContent)`
   ${pageWidthCss}
 `;
-
 
 const ArticlePageTemplate = (props) => {
   const { page, home } = props;
@@ -28,9 +27,11 @@ const ArticlePageTemplate = (props) => {
 
       <Heading level={2}>{page.title}</Heading>
 
-      <PageContent content={page.html}/>
+      <PageContent content={page.html} />
 
-      <PageSeparator/>
+      <Author name={page.author} />
+
+      <PageSeparator />
 
       <CallsToAction {...home} />
     </MainSection>
@@ -45,6 +46,7 @@ export const pageQuery = graphql`
                 description
                 banner
                 bannerTransformation
+                author
             }
             html
         }
