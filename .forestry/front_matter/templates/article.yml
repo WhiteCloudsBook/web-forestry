@@ -51,7 +51,7 @@ fields:
 - name: featured
   type: boolean
   label: featured
-- name: bannertransformation
+- name: bannerTransformation
   type: text
   config:
     required: false

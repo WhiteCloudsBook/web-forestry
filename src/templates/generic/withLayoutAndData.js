@@ -7,6 +7,7 @@ import { getImageUrl } from "../../common/imageUrl";
 export const getPropsForPage = ({ data }) => ({
   page: {
     ...data.markdownRemark.frontmatter,
+    html: data.markdownRemark.html
   },
 });
 

@@ -2,7 +2,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "styled-components";
 import { Heading } from "grommet";
-import Picture from "../components/Picture";
 import PageTextBox from "../components/PageTextBox";
 import EmailRegForm from "../components/EmailRegForm";
 import PageSeparator from "../components/PageSeparator";
@@ -11,6 +10,7 @@ import { MainSection, pageWidthCss } from "../common/styles";
 import withLayoutAndData, { getPropsForPage } from "./generic/withLayoutAndData";
 import SocialLinks from "../components/SocialLinks";
 import ArticleList from "../components/ArticleList";
+import PageBanner from "../components/PageBanner";
 
 const Blurb = styled(HTMLContent)`
   ${pageWidthCss}
@@ -20,7 +20,7 @@ const HomePageTemplate = (props) => {
   const { page } = props;
 
   return <>
-    <Picture path={page.banner}/>
+    <PageBanner page={page} />
 
     <MainSection>
       <SocialLinks/>

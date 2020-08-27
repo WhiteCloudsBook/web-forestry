@@ -6,7 +6,7 @@ description: A message from the author of the book
 banner: "/v1598523853/site/authors-notes_sdwkph.png"
 author: Yoav Niran
 featured: true
-bannertransformation: h_400,g_north,c_fill
+bannerTransformation: h_300,g_north,c_fill
 
 ---
 **WHITE CLOUDS** is my first novel - A science fiction story that combines mystery, adventure, and detective themes.

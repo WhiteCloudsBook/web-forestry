@@ -10,7 +10,7 @@ const SIZES = {
   "(min-width: 900px)": "1200",
 };
 
-export default ({ responsive = true, sizes, path, alt, className, ...rest }) => {
+export default ({ responsive = true, sizes, path, alt, className, extraTransformation, ...rest }) => {
   const { cloudinaryBase } = useSiteMetadata();
 
   sizes = sizes || SIZES;
@@ -18,11 +18,11 @@ export default ({ responsive = true, sizes, path, alt, className, ...rest }) => 
   return responsive ?
     <picture className={className}>
       {Object.entries(sizes).map(([key, width]) =>
-        <source srcSet={getSourceSrcset(cloudinaryBase, path, width, true)}
+        <source srcSet={getSourceSrcset(cloudinaryBase, path, width, true, extraTransformation)}
                 media={key}
                 key={key}
         />)}
-      <Image src={getImageUrl(cloudinaryBase, path)} alt={alt} {...rest}/>
+      <Image src={getImageUrl(cloudinaryBase, path, extraTransformation)} alt={alt} {...rest}/>
     </picture> :
     <Image className={className} src={getImageUrl(cloudinaryBase, path)} alt={alt} {...rest}/>;
 };

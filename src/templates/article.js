@@ -1,17 +1,38 @@
 import React from "react";
-import Picture from "../components/Picture";
-import { MainSection } from "../common/styles";
+import { Heading } from "grommet";
+// import Picture from "../components/Picture";
+import { MainSection, pageWidthCss } from "../common/styles";
 import withLayoutAndData from "./generic/withLayoutAndData";
 import { graphql } from "gatsby";
+import SocialLinks from "../components/SocialLinks";
+import PageSeparator from "../components/PageSeparator";
+// import PageTextBox from "../components/PageTextBox";
+import EmailRegForm from "../components/EmailRegForm";
+import PageBanner from "../components/PageBanner";
+import { HTMLContent } from "../components/Content";
+import styled from "styled-components";
+
+
+const PageContent = styled(HTMLContent)`
+  ${pageWidthCss}
+`;
+
 
 const ArticlePageTemplate = (props) => {
   const { page } = props;
 
   return <>
-    <Picture path={page.banner}/>
+    <PageBanner page={page} text="WCB Blog"/>
 
     <MainSection>
+      <SocialLinks/>
+      <PageSeparator/>
 
+      <Heading level={2}>{page.title}</Heading>
+
+      <PageContent content={page.html}/>
+
+      <EmailRegForm mainText={page.registerCtaText} subText={page.registerCtaSubText}/>
     </MainSection>
   </>;
 };
@@ -23,6 +44,7 @@ export const pageQuery = graphql`
                 title
                 description
                 banner
+                bannerTransformation
             }
             html
         }
