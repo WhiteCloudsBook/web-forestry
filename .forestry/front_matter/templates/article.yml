@@ -51,6 +51,11 @@ fields:
 - name: featured
   type: boolean
   label: featured
+- name: bannertransformation
+  type: text
+  config:
+    required: false
+  label: Banner Transformation
 pages:
 - content/articles/kaishi-s-prophecy.md
 - content/articles/yoav-s-notes.md
