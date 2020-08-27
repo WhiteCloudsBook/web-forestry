@@ -2,7 +2,7 @@ import React from "react";
 import isFunction from "lodash/isFunction";
 import useSiteMetadata from "../../components/useSiteMetadata"
 import Layout from "../../components/Layout";
-import { getImageUrl } from "../../common/imageUrl";
+import { fixBannerPath, getImageUrl } from "../../common/imageUrl";
 
 export const getPropsForPage = ({ data }) => ({
   page: {
@@ -21,7 +21,7 @@ export default (converterFn, layoutProps, children, options) =>
 
 			const { ogTags, ...restLayout } = layoutProps;
 
-			pageProps.page.banner = "/" + pageProps.page.banner.replace(/\.\.\//g, "")
+			pageProps.page.banner = fixBannerPath(pageProps.page.banner); //"/" + pageProps.page.banner.replace(/\.\.\//g, "");
 
 			return <Layout title={pageProps.page.title}
 				ogTags={{

@@ -1,3 +1,4 @@
+import { fixBannerPath } from "./imageUrl";
 
 const transformEdgesNodes = (items, moreTransform = null) => {
   const edges = items.edges || items;
@@ -7,7 +8,7 @@ const transformEdgesNodes = (items, moreTransform = null) => {
       ...edge.node.fields,
       ...edge.node.frontmatter,
       content: edge.node.html,
-      image: edge.node.frontmatter.banner || edge.node.frontmatter.image || edge.node.image,
+      image: fixBannerPath(edge.node.frontmatter.banner || edge.node.frontmatter.image || edge.node.image),
       ...(moreTransform ? moreTransform(edge.node) : {})
     })) : edges);
 };

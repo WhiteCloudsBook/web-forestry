@@ -74,9 +74,9 @@ const ArticleText = styled(Text)`
   font-weight: bold;
 `;
 
-export default memo(({ banner, title, pagePath }) => {
+export default memo(({ image, title, pagePath }) => {
   return <ArticleContainer to={pagePath}>
-      <StyledImage path={banner} sizes={{
+      <StyledImage path={image} sizes={{
         "(max-width: 900px)": "600",
         "(min-width: 900px)": "900",
       }}/>

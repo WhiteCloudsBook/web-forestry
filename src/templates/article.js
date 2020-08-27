@@ -5,8 +5,6 @@ import withLayoutAndData, { getPropsForPage } from "./generic/withLayoutAndData"
 import { graphql } from "gatsby";
 import SocialLinks from "../components/SocialLinks";
 import PageSeparator from "../components/PageSeparator";
-// import PageTextBox from "../components/PageTextBox";
-import EmailRegForm from "../components/EmailRegForm";
 import PageBanner from "../components/PageBanner";
 import { HTMLContent } from "../components/Content";
 import styled from "styled-components";

@@ -35,9 +35,13 @@ const getResponsiveImageProps = (base, path, sizes, extraTransformation) => {
   };
 };
 
+const fixBannerPath = (path) =>
+  "/" + path.replace(/\.\.\//g, "");
+
 export {
   getImageUrlWithParams,
   getImageUrl,
   getSourceSrcset,
   getResponsiveImageProps,
+  fixBannerPath,
 };
