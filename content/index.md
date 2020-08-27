@@ -1,7 +1,7 @@
 ---
 title: Home
 description: home page for the White Clouds Sci-fi novel by Yoav Niran
-crowdFundingText: Your help is needed! Crowdfunding project coming soon...
+crowdFundingText: Your help is needed! Crowd-funding project coming soon...
 banner: "/v1597784586/site/banner_xmi4qj.png"
 readBookText: Click here to read the first part of the book on Wattpad
 readBookUrl: https://www.wattpad.com/story/212341112-white-clouds
@@ -27,7 +27,8 @@ bookBlurb: "<p>Five centuries after a fraction of humanity left a dying Earth be
   way, Wendall has no choice but to confront what he cannot outrun - <span style='font-style:italic;'>The
   part of the AI that's inside him</span>.</p><p></p>"
 type: home
-welcomeText: "<p>Welcome. White Clouds is a sci-fi novel written by Yoav Niran. Here
-  you can find information about how to read the book and how to support its publication.</p>"
+welcomeText: "<p><strong>Welcome</strong>. <em>White Clouds</em> is a sci-fi novel
+  written by Yoav Niran. Here you can find information about how to read the book
+  and how to support its publication.</p>"
 
 ---
