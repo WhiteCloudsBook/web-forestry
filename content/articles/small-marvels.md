@@ -1,13 +1,14 @@
 ---
 type: article
 title: Small Marvels
-description: "Small Marvels is a song written around 481 SC (roughly equals: 2826 CE)"  
+description: 'Small Marvels is a song written around 481 SC (roughly equals: 2826
+  CE)'
 banner: "/v1598516643/site/gemma-evans-v5QCF2PFHZ4-unsplash_z6ji9c.jpg"
 date: 2020-08-13T21:37:38.000+00:00
 author: Yoav Niran
-featured: true
----
+featured: false
 
+---
 <p>
 <h3 style="font-style: italic; font-size: 12px;">From the story...</h3>
 </p>
