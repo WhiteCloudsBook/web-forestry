@@ -2,13 +2,15 @@
 import React, { useContext, useState, useCallback, useEffect } from "react";
 import styled from "styled-components";
 import { Button, ThemeContext, Heading } from "grommet";
-import { FormClose } from "grommet-icons/index";
+import { FormClose } from "grommet-icons";
 import Modal from "react-modal";
-import ReCaptcha from "react-google-recaptcha";
+// import ReCaptcha from "react-google-recaptcha";
 import { breakpoint, getColor } from "../theme";
 import { pageWidthCss } from "../common/styles";
 import { NotificationContext } from "./Notifications/NotificationProvider";
 import Picture from "./Picture";
+
+const ReCaptcha = React.Lazy(()=> require("react-google-recaptcha"));
 
 Modal.setAppElement("#___gatsby");
 
@@ -168,7 +170,7 @@ const Form = ({ onSubmit, mainText, subText, onFieldChange, setRecaptchaValue, h
       <Button type="submit" primary label="Register" size="large"/>
     </FormRow>
 
-    {!isDev && <ReCaptcha
+    {!isDev && !hide && <ReCaptcha
       sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY || "xxxx"}
       onChange={setRecaptchaValue}/>}
   </FormContent>

@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { graphql, Link } from "gatsby";
 import styled from "styled-components";
-import { Text } from "grommet";
+import { Text, Heading } from "grommet";
 import { breakpoint, color } from "../theme";
 import { pageBoxShadow } from "../common/styles";
 import Image from "./Image";
@@ -26,7 +26,7 @@ const ArticleContainer = styled(Link)`
     width: 80%;
     position: relative;  
     overflow: hidden;
-    height: 200px;
+    height: 240px;
     min-width: 200px;
     display: flex;
     flex-direction: column;
@@ -44,8 +44,12 @@ const ArticleContainer = styled(Link)`
     
     ${breakpoint("tablet", true)`
       width: 30%;
-      margin-right: 10px;			
+      margin-right: 10px;		       	
 		`}
+    
+    ${breakpoint("tablet")`
+      justify-content: space-between;    
+    `}
 `;
 
 const ArticleTextOverlay = styled.div`
@@ -55,11 +59,9 @@ const ArticleTextOverlay = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 1;
-  padding: 6px 0;
+  padding: 6px;
   
-  ${breakpoint("tablet", true)`
-    flex-grow: 1;
-  `}
+  height: 70px; 
 `;
 
 const StyledImage = styled(Image)`
@@ -74,14 +76,34 @@ const ArticleText = styled(Text)`
   font-weight: bold;
 `;
 
-export default memo(({ image, title, pagePath }) => {
+const ArticleTitleWrapper = styled.div`
+  height: 24px;
+  margin-bottom: 4px;
+   
+  ${breakpoint("tablet")`
+    z-index:1;
+    ${color("black", "bg")}
+    width: 100%;
+    text-align: center;      
+    margin: 0;
+  `}  
+`;
+
+const ArticleTitle = styled(Heading)`
+max-width: 100%;
+`;
+
+export default memo(({ image, title, pagePath, description }) => {
   return <ArticleContainer to={pagePath}>
-      <StyledImage path={image} sizes={{
-        "(max-width: 900px)": "600",
-        "(min-width: 900px)": "900",
-      }}/>
-      <ArticleTextOverlay>
-        <ArticleText>{title}</ArticleText>
-      </ArticleTextOverlay>
-    </ArticleContainer>;
+    <ArticleTitleWrapper>
+      <ArticleTitle level={4} margin="none">{title}</ArticleTitle>
+    </ArticleTitleWrapper>
+    <StyledImage path={image} sizes={{
+      "(max-width: 900px)": "600",
+      "(min-width: 900px)": "900",
+    }}/>
+    <ArticleTextOverlay>
+      <ArticleText size="small">{description}</ArticleText>
+    </ArticleTextOverlay>
+  </ArticleContainer>;
 });

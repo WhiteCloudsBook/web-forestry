@@ -6,6 +6,7 @@ import { pageWidthCss } from "../common/styles";
 
 const ArticlesContainer = styled.section`
   ${pageWidthCss}
+  max-width: 640px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
