@@ -5,12 +5,12 @@
 	"lang": "en",
 	"icons": [
 		{
-			"src": "https://res.cloudinary.com/whiteclouds/image/upload/w_192,f_png/v1558535359/cover/cover-eye",
+			"src": "https://res.cloudinary.com/whiteclouds/image/upload/w_192,h_192,c_fill,f_png/v1558535359/cover/cover-eye",
 			"type": "image/png",
 			"sizes": "192x192"
 		},
 		{
-			"src": "https://res.cloudinary.com/whiteclouds/image/upload/w_512,f_png/v1558535359/cover/cover-eye",
+			"src": "https://res.cloudinary.com/whiteclouds/image/upload/w_512,h_512,c_fill,f_png/v1558535359/cover/cover-eye",
 			"type": "image/png",
 			"sizes": "512x512"
 		}
@@ -18,6 +18,6 @@
 	"start_url": "/",
 	"background_color": "#232429",
 	"display": "fullscreen",
-	"theme_color": "#0f2c62ff",
+	"theme_color": "#0f2c62",
 	"orientation": "portrait"
 }

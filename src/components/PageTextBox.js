@@ -37,21 +37,16 @@ const StyledImage = styled(Image)`
    position: absolute;
  `;
 
-const renderBox = ({ text, image, link }) => {
+const renderBox = ({ text, image, imageAlt, link }) => {
   return <Box link={!!link}>
     <StyledImage path={image} sizes={{
       "(max-width: 900px)": "600",
       "(min-width: 900px)": "900",
-    }} />
+    }} alt={imageAlt}/>
     <Text>{text}</Text>
   </Box>;
 };
 
-export default (props) => {
-  const { link } = props;
-  let { image } = props;
-
-  return link ?
-    <Link href={link} target="_blank" rel="noreferrer">{renderBox({ ...props, image })}</Link> :
-    renderBox({ ...props, image });
-};
+export default (props) => props.link ?
+  <Link href={props.link} target="_blank" rel="noreferrer">{renderBox({ ...props })}</Link> :
+  renderBox({ ...props });
