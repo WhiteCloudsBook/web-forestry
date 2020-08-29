@@ -1,0 +1,23 @@
+{
+	"short_name": "WhiteCloudsBook",
+	"name": "White Clouds Book",
+	"description": "White Clouds Book a sci-fi novel by Yoav Niran - Home on the Web",
+	"lang": "en",
+	"icons": [
+		{
+			"src": "https://res.cloudinary.com/whiteclouds/image/upload/w_192,f_png/v1558535359/cover/cover-eye",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "https://res.cloudinary.com/whiteclouds/image/upload/w_512,f_png/v1558535359/cover/cover-eye",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": "/",
+	"background_color": "#232429",
+	"display": "fullscreen",
+	"theme_color": "#0f2c62ff",
+	"orientation": "portrait"
+}
