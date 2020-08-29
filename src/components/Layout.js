@@ -93,8 +93,7 @@ const Layout = (props) => {
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
           <meta name="apple-mobile-web-app-status-bar-style" content="#22d640" />
 
-          {/*<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Frank+Ruhl+Libre:400,700&display=swap" rel="stylesheet" />*/}
-          <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+          {/*<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet"/>*/}
 
           <link href="/manifest.json" rel="manifest" />
         </Helmet>

@@ -46,13 +46,17 @@ module.exports = {
         path: `${__dirname}/content/data`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     name: "images",
-    //     path: `${__dirname}/content/images`,
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-prefetch-google-fonts",
+      options: {
+        fonts: [
+          {
+            family: "Open Sans",
+            variants: ["ital", "300", "400", "600"]
+          },
+        ],
+      },
+    },
     {
       resolve: "gatsby-plugin-sharp",
       options: {
