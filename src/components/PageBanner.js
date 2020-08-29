@@ -34,6 +34,8 @@ export default ({ page, text, ...props }) => {
   return <Container>
     <Banner path={page.banner}
             extraTransformation={page.bannerTransformation}
+            alt={page.title}
+            height="300"
             {...props} />
     <BannerText>{text}</BannerText>
   </Container>;

@@ -25,7 +25,7 @@ const ArticlePageTemplate = (props) => {
   const { page, home } = props;
 
   return <>
-    <PageBanner page={page} text="WCB Blog"/>
+    <PageBanner page={page} text="WCB Blog" />
 
     <MainSection>
       <SocialLinks/>
