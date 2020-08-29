@@ -20,7 +20,7 @@ const HomePageTemplate = (props) => {
   const { page } = props;
 
   return <>
-    <PageBanner page={page}/>
+    <PageBanner page={page} alt="home page banner"/>
 
     <MainSection>
       <SocialLinks/>
@@ -32,8 +32,8 @@ const HomePageTemplate = (props) => {
 
       <Heading level={2} color="brand">Blurb</Heading>
       <PageContent content={page.bookBlurb}/>
-      <p>Start reading the book <a style={{ textDecoration: "underline" }} href={page.readBookUrl}
-                                   target="_blank" rel="noreferrer"><strong>here</strong></a>.</p>
+      <p><a style={{ textDecoration: "underline" }} href={page.readBookUrl}
+            target="_blank" rel="noreferrer">Start reading the book on Wattpad.</a></p>
 
       <PageSeparator/>
 

@@ -1,7 +1,9 @@
 const BASE_PARAMS = [["q", "auto"], ["f", "auto"]];
 
+const removeExt = (path) => path.replace(/\.(\w+)$/,"");
+
 const getImageUrlWithParams = (base, path, params, extra) =>
-  `${base}${params.map((p) => `${p[0]}_${p[1]}`)}${extra ? `,${extra}` : ""}${path}`;
+  `${base}${params.map((p) => `${p[0]}_${p[1]}`)}${extra ? `,${extra}` : ""}${removeExt(path)}`;
 
 const getImageUrl = (base, path, width = 0, addDpr = false, extraTransformation) =>
   getImageUrlWithParams(base, path,

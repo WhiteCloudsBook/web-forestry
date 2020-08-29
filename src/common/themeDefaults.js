@@ -14,7 +14,7 @@ export const colors = {
   "page-bg": "#232429",
   "main-bg": "#2e2f32",
 	// "brand-gradient-dark": "linear-gradient(to right, #22d640 0%,#247f34 100%);",
-	"brand": "#2876aeff",
+	"brand": "#69a5d0",
 	"brand-dark": "#0f2c62ff",
   "focus": "#105c71ff",
 	"overlay-bg": "#56585c",

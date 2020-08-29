@@ -20,7 +20,6 @@ export const Main = styled.main`
 `;
 
 const Layout = (props) => {
-
   const { title, description } = useSiteMetadata();
 
   const titleTemplate = props.titleTemplateOverride ?
@@ -31,7 +30,7 @@ const Layout = (props) => {
     <Grommet theme={theme}>
       <GlobalStyles />
       <div>
-        <Helmet titleTemplate={titleTemplate}>
+        <Helmet titleTemplate={titleTemplate} htmlAttributes={{ lang: "en" }}>
           <title>{props.title}</title>
 
           <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials" />

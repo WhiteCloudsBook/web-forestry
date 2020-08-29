@@ -101,7 +101,7 @@ export default memo(({ image, title, pagePath, description }) => {
     <StyledImage path={image} sizes={{
       "(max-width: 900px)": "600",
       "(min-width: 900px)": "900",
-    }}/>
+    }} alt={title}/>
     <ArticleTextOverlay>
       <ArticleText size="small">{description}</ArticleText>
     </ArticleTextOverlay>
