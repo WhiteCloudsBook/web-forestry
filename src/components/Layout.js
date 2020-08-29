@@ -33,9 +33,9 @@ const Layout = (props) => {
         <Helmet titleTemplate={titleTemplate} htmlAttributes={{ lang: "en" }}>
           <title>{props.title}</title>
 
-          <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="use-credentials" />
+          <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="use-credentials" />
           {/*<link rel="preconnect" href="https://adservice.google.com" crossorigin="use-credentials" />*/}
-          <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin="use-credentials" />
+          <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="use-credentials" />
 
           <meta name="description" content={props.description || description} />
 

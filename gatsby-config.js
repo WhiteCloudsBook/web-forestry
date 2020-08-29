@@ -1,17 +1,8 @@
 const config = require("./config.json");
-// const infoData = require("./content/data/info.json")
 
 module.exports = {
   siteMetadata: {
     ...config,
-    // title: config.title,
-    // description: config.description,
-    // repoUrl: config.repository_url,
-    // about: config.about,
-    // contact: config.contact,
-    // primaryColor: config.primary_color,
-    // infoData: infoData,
-    // fb: config
   },
   plugins: [
     "gatsby-transformer-remark",

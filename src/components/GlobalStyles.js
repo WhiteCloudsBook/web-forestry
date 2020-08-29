@@ -53,18 +53,12 @@ const GlobalStyles = createGlobalStyle`
 	a {
 		text-decoration: none;
 		cursor: pointer;
-
-		&:hover {
-			${color("brand")}
-		}
 		
+		${color("brand")}
+				
 		&:visited {
 		  ${color("brand")}
 		}
-
-		// ${breakpoint("phone")`
-		// 	text-decoration: underline;
-		// `}
 	}
 
 	img {
