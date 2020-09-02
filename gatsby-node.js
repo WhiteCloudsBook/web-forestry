@@ -66,19 +66,21 @@ module.exports.createPages = async ({ graphql, actions }) => {
       slug = edge.node.fields.slug,
       pagePath = edge.node.fields.pagePath;
 
-    const pageData = {
-      component: path.resolve(
-        `src/templates/${fm.type}.js`,
-      ),
-      path: pagePath,
-      context: {
-        id,
-        slug,
-        type,
-        pagePath,
-      },
-    };
+    if (type) {
+      const pageData = {
+        component: path.resolve(
+          `src/templates/${fm.type}.js`,
+        ),
+        path: pagePath,
+        context: {
+          id,
+          slug,
+          type,
+          pagePath,
+        },
+      };
 
-    createPage(pageData);
+      createPage(pageData);
+    }
   });
 };
