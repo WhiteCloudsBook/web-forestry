@@ -27,8 +27,7 @@ bookBlurb: "<p>Five centuries after a fraction of humanity left a dying Earth be
   way, Wendall has no choice but to confront what he cannot outrun - <span style='font-style:italic;'>The
   part of the AI that's inside him</span>.</p><p></p>"
 type: home
-welcomeText: "<p><strong>Welcome</strong>. <em>White Clouds</em> is a sci-fi novel
-  written by <em>Yoav Niran</em>. Here you can find information about how to read
-  the book and how to support its publication.</p>"
+welcomeText: "<p><strong>Welcome</strong>. My name is <em>Yoav Niran</em> and <em>White Clouds</em> is my first sci-fi novel. 
+    Here you can find information about how to read  the book and how to support its publication.</p>"
 
 ---

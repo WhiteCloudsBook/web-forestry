@@ -10,7 +10,7 @@ import PageSeparator from "../components/PageSeparator";
 import PageBanner from "../components/PageBanner";
 import { HTMLContent } from "../components/Content";
 import CallsToAction from "../components/CallsToAction";
-import Author from "../components/Author";
+import AuthorSpeechBubble from "../components/AuthorSpeechBubble";
 
 const PageContent = styled(HTMLContent)`
   ${pageWidthCss}
@@ -36,7 +36,7 @@ const ArticlePageTemplate = (props) => {
       <PageContent content={page.html}/>
       <ArticleSeparator/>
 
-      <Author name={page.author}/>
+      <AuthorSpeechBubble text={`Posted by ${page.author}`}/>
 
       <PageSeparator/>
 

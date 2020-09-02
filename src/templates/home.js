@@ -11,6 +11,7 @@ import SocialLinks from "../components/SocialLinks";
 import ArticleList from "../components/ArticleList";
 import PageBanner from "../components/PageBanner";
 import CallsToAction from "../components/CallsToAction";
+import AuthorSpeechBubble from "../components/AuthorSpeechBubble";
 
 const PageContent = styled(HTMLContent)`
   ${pageWidthCss}
@@ -24,9 +25,10 @@ const HomePageTemplate = (props) => {
 
     <MainSection>
       <SocialLinks/>
-      <PageSeparator/>
+      {/*<PageSeparator/>*/}
 
-      <PageContent content={page.welcomeText}/>
+      {/*<PageContent content={page.welcomeText}/>*/}
+      <AuthorSpeechBubble text={page.welcomeText}/>
 
       <CallsToAction {...page} />
 
