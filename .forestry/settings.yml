@@ -4,6 +4,10 @@ auto_deploy: false
 admin_path: control
 webhook_url: 
 sections:
+- type: document
+  path: content/authorBio.md
+  label: Author Bio
+  match: "**/*"
 - type: heading
   label: Content
 - type: document
