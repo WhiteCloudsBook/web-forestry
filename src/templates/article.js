@@ -19,6 +19,7 @@ const PageContent = styled(HTMLContent)`
 const ArticleSeparator = styled.hr`
   width: 15%;
   border: 1px dashed ${color("border.light", false)};
+  margin-bottom: 20px;
 `;
 
 const ArticlePageTemplate = (props) => {
