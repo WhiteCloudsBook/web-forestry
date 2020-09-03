@@ -17,10 +17,10 @@ const Box = styled.div`
 `;
 
 const Text = styled.div`
-  font-size: 32px;
+  font-size: 22px;
   ${color("white")}
   max-width: 235px;
-  line-height: 38px;
+  line-height: 34px;
   text-align: center;
   background-color: #46464673;
   height: 100%;

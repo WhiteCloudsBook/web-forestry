@@ -81,7 +81,7 @@ export default ({ children, isOpen, onClose }) => {
                   content: {
                     top: "50%",
                     left: "50%",
-                    width: "100%",
+                    width: "99%",
                     maxWidth: "700px",
                     height: "90%",
                     transform: "translate(-50%, -50%)",
