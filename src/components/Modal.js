@@ -11,6 +11,8 @@ export const ModalGlobalStyles = createGlobalStyle`
 
   .ReactModal__Body--open {
     padding-right: 15px; /* Avoid width reflow */  
+    left: 0;
+    right: 0;
   }
   
   .ReactModal__Overlay {
