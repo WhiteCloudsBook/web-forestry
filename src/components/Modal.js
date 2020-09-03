@@ -9,8 +9,7 @@ Modal.setAppElement("#___gatsby");
 
 export const ModalGlobalStyles = createGlobalStyle`
 
-  .ReactModal__Body--open {
-    padding-right: 15px; /* Avoid width reflow */  
+  .ReactModal__Body--open {    
     left: 0;
     right: 0;
   }
@@ -46,14 +45,16 @@ export default ({ children, isOpen, onClose }) => {
     onClose();
   }, [onClose]);
 
-  const onModalOpen = useCallback(()=>{
+  const onModalOpen = useCallback(() => {
     document.body.style.top = `-${window.scrollY}px`;
+    document.body.style.paddingRight = "15px"; /* Avoid width reflow */
     document.body.style.position = "fixed";
   }, []);
 
-  const onModalClose = useCallback(()=>{
+  const onModalClose = useCallback(() => {
     const scrollY = document.body.style.top;
     document.body.style.position = "";
+    document.body.style.paddingRight = "";
     document.body.style.top = "";
     window.scrollTo(0, parseInt(scrollY || "0") * -1);
   }, []);
@@ -94,7 +95,7 @@ export default ({ children, isOpen, onClose }) => {
                   },
                   overlay: {
                     zIndex: "100",
-                    backgroundColor: getColor(theme, "overlay-bg-transparent")
+                    backgroundColor: getColor(theme, "overlay-bg-transparent"),
                   },
                 }}>
     <CloseButton size="large" onClick={closeModal}/>
