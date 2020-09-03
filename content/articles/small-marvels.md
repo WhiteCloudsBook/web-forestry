@@ -1,8 +1,7 @@
 ---
 type: article
 title: Small Marvels
-description: 'From the story: a song written in 481 SC (roughly equals: 2826
-  CE)'
+description: 'From the story: a song written in 481 SC (roughly: 2826 CE)'
 banner: "/v1598604583/site/stars-guitar_atmjks.png"
 date: 2020-08-13T21:37:38.000+00:00
 author: Yoav Niran
