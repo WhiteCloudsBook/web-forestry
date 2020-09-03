@@ -27,7 +27,7 @@ const ArticleContainer = styled(Link)`
     position: relative;  
     overflow: hidden;
     height: 240px;
-    min-width: 200px;
+    min-width: 320px;
     display: flex;
     flex-direction: column;
     align-items: center;

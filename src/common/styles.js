@@ -5,7 +5,7 @@ export const pageWidthCss = css`
 
   width: 80%;
   max-width: 600px;
-  min-width: 400px;
+  min-width: 360px;
 `;
 
 export const pageBoxShadow = css`
