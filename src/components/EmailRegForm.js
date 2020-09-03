@@ -1,16 +1,13 @@
 /* eslint no-console: 0 */
-import React, { useContext, useState, useCallback, useEffect } from "react";
+import React, { useContext, useState, useCallback } from "react";
 import styled from "styled-components";
-import { Button, ThemeContext, Heading } from "grommet";
-import { FormClose } from "grommet-icons";
+import { Button, Heading } from "grommet";
 import ReCaptcha from "react-google-recaptcha";
-import { breakpoint, getColor } from "../theme";
+import { breakpoint } from "../theme";
 import { pageWidthCss } from "../common/styles";
 import { NotificationContext } from "./Notifications/NotificationProvider";
 import Modal from "./Modal";
-import Picture from "./Picture";
-
-// const ReCaptcha = React.Lazy(()=> require("react-google-recaptcha"));
+// import Picture from "./Picture";
 
 
 //TODO: save name to local storage so can be shown instead of form
@@ -111,18 +108,18 @@ const encode = (data) => Object.keys(data)
     `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
   .join("&");
 
-const ModalPicture = styled(Picture)`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  
-  img {
-    height:  100%;
-    width: 100%;
-  }
-`;
+// const ModalPicture = styled(Picture)`
+//   position: absolute;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   top: 0;
+//
+//   img {
+//     height:  100%;
+//     width: 100%;
+//   }
+// `;
 
 const Form = ({ onSubmit, mainText, subText, onFieldChange, setRecaptchaValue, hide = false }) =>
   <StyledForm
@@ -133,7 +130,7 @@ const Form = ({ onSubmit, mainText, subText, onFieldChange, setRecaptchaValue, h
     data-netlify-recaptcha="true"
     onSubmit={onSubmit}
     hide={hide}>
-    <ModalPicture path="/c_fill,ar_9:16/v1597963949/site/nova_sdyc2e.jpg"/>
+    {/*<ModalPicture path="/c_fill,ar_9:16/v1597963949/site/nova_sdyc2e.jpg"/>*/}
 
     <FormContent>
       <input type="hidden" name="form-name" value="contactlist"/>
@@ -174,8 +171,6 @@ const RegCta = ({ showForm, mainText }) => <CtaContainer>
 </CtaContainer>;
 
 const ModalForm = ({ show, onFieldChange, onSubmit, setRecaptchaValue, onModalClose, mainText, subText }) => {
-  // const theme = useContext(ThemeContext);
-
   return <Modal isOpen={show} onClose={onModalClose}>
     <Form onSubmit={onSubmit} mainText={mainText} subText={subText} onFieldChange={onFieldChange}
           setRecaptchaValue={setRecaptchaValue}/>
