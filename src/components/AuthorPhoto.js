@@ -1,23 +1,25 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { } from "styled-components";
 import { color } from "../theme";
 import useSiteMetadata from "./useSiteMetadata";
 import Image from "./Image";
 
 const AuthorImage = styled(Image)`
-    width: 40px;
-    height: 40px;
+    width: ${({ size }) => size}px;
+    height: ${({ size }) => size}px;
     border-radius: 50%;
     box-shadow: 0 2px 2px ${color("brand-dark", false)};
-    opacity: 0.5;
+    opacity: ${({ opacity }) => opacity};
     
     &:hover {
      opacity: 1;
     }
 `;
 
-export default () => {
+const AuthorPhoto = ({ className, size = 40, opacity = 0.5 }) => {
   const { authorPhoto } = useSiteMetadata();
 
-  return <AuthorImage path={authorPhoto}/>;
+  return <AuthorImage className={className} size={size} opacity={opacity} path={authorPhoto}/>;
 };
+
+export default styled(AuthorPhoto)``;

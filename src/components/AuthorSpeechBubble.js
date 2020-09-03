@@ -4,6 +4,8 @@ import { pageWidthCss } from "../common/styles";
 import { HTMLContent } from "./Content";
 import AuthorPhoto from "./AuthorPhoto";
 import { color, border } from "../theme";
+import withModalTrigger from "./hocs/withModalTrigger";
+import AuthorBio from "./AuthorBio";
 
 const BubbleContainer = styled.section`
   ${pageWidthCss}
@@ -25,7 +27,7 @@ const SpeechBubble = styled.div`
   font-style: italic;
   
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 50%;
@@ -44,10 +46,11 @@ const SpeechBubble = styled.div`
   }
 `;
 
+const AuthorPhotoWithBio = withModalTrigger(AuthorBio)(AuthorPhoto);
 
 export default ({ text }) => {
   return <BubbleContainer>
-    <AuthorPhoto />
+    <AuthorPhotoWithBio />
     <SpeechBubble>
       <HTMLContent content={text}/>
     </SpeechBubble>
