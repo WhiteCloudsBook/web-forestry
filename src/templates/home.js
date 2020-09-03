@@ -25,9 +25,7 @@ const HomePageTemplate = (props) => {
 
     <MainSection>
       <SocialLinks/>
-      {/*<PageSeparator/>*/}
 
-      {/*<PageContent content={page.welcomeText}/>*/}
       <AuthorSpeechBubble text={page.welcomeText}/>
 
       <CallsToAction {...page} />

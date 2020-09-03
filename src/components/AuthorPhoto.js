@@ -3,27 +3,6 @@ import styled from "styled-components";
 import { color } from "../theme";
 import useSiteMetadata from "./useSiteMetadata";
 import Image from "./Image";
-// import { pageWidthCss } from "../common/styles";
-
-// const AuthorWrapper = styled.div`
-//   display: flex;
-//   justify-content: flex-end;
-//   align-items: center;
-//   opacity: 0.5;
-//
-//   ${pageWidthCss}
-//
-//   &:hover {
-//     opacity: 1;
-//   }
-// `;
-
-// const AuthorText = styled.p`
-//   font-size: 12px;
-//   font-weight: bold;
-//   font-style: italic;
-//   margin-right: 10px
-// `;
 
 const AuthorImage = styled(Image)`
     width: 40px;
@@ -41,5 +20,4 @@ export default () => {
   const { authorPhoto } = useSiteMetadata();
 
   return <AuthorImage path={authorPhoto}/>;
-    {/*{name && <AuthorText>Posted by {name}</AuthorText>}*/}
 };

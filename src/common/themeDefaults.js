@@ -18,7 +18,7 @@ export const colors = {
 	"brand-dark": "#0f2c62ff",
   "focus": "#105c71ff",
 	"overlay-bg": "#56585c",
-  "overlay-bg-transparent": "#56585ccc",
+  "overlay-bg-transparent": "rgba(86, 88, 92, 0.8)",
 	// "brand-bg-ultra-light": "#c3d3c63b",
 	"brand-bg-overlay": "#7eb6c4",
 	"brand-bg-dark": "#0d162b",

@@ -81,6 +81,9 @@ module.exports.createPages = async ({ graphql, actions }) => {
       };
 
       createPage(pageData);
+    } else {
+      // eslint-disable-next-line no-console
+      console.log(`--- found page ${pagePath} with no template`);
     }
   });
 };
