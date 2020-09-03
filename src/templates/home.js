@@ -17,11 +17,15 @@ const PageContent = styled(HTMLContent)`
   ${pageWidthCss}
 `;
 
+const HomeBanner = styled(PageBanner)`
+  height: 200px;
+`;
+
 const HomePageTemplate = (props) => {
   const { page } = props;
 
   return <>
-    <PageBanner page={page} alt="home page banner"/>
+    <HomeBanner page={page} alt="home page banner"/>
 
     <MainSection>
       <SocialLinks/>

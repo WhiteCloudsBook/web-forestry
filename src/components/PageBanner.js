@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Picture from "./Picture";
 import { color } from "../theme";
 
-const Banner = styled(Picture)`
-  height: 300px;
+const Banner = styled(Picture)` 
+  display: block;
   
   img {
     width: 100%;
@@ -29,10 +29,10 @@ const BannerText = styled.span`
   text-shadow: 4px 2px 12px ${color("brand", false)};
 `;
 
-export default ({ page, text, ...props }) => {
-
+export default ({ page, text, className, ...props }) => {
   return <Container>
-    <Banner path={page.banner}
+    <Banner className={className}
+            path={page.banner}
             extraTransformation={page.bannerTransformation}
             alt={page.title}
             height="300"

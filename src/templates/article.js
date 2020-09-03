@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import { Heading } from "grommet";
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en";
 import { MainSection, pageWidthCss } from "../common/styles";
 import withLayoutAndData, { getPropsForPage } from "./generic/withLayoutAndData";
 import { graphql } from "gatsby";
@@ -12,6 +14,9 @@ import { HTMLContent } from "../components/Content";
 import CallsToAction from "../components/CallsToAction";
 import AuthorSpeechBubble from "../components/AuthorSpeechBubble";
 
+TimeAgo.addLocale(en);
+const timeAgo = new TimeAgo("en-US");
+
 const PageContent = styled(HTMLContent)`
   ${pageWidthCss}
 `;
@@ -22,11 +27,21 @@ const ArticleSeparator = styled.hr`
   margin-bottom: 20px;
 `;
 
+const ArticleBanner = styled(PageBanner)`
+  height: 300px;
+`;
+
 const ArticlePageTemplate = (props) => {
   const { page, home } = props;
 
+  const articleDateAgo = useMemo(() => timeAgo.format(new Date(page.date)), [page.date]);
+  const articleDate = useMemo(() => {
+    const d= new Date(page.date);
+    return d.toLocaleString();
+  }, [page.date]);
+
   return <>
-    <PageBanner page={page} text="WCB Blog" />
+    <ArticleBanner page={page} text="WCB Blog" />
 
     <MainSection>
       <SocialLinks/>
@@ -37,8 +52,11 @@ const ArticlePageTemplate = (props) => {
       <PageContent content={page.html}/>
       <ArticleSeparator/>
 
-      <AuthorSpeechBubble text={`Posted by ${page.author}`}/>
-
+      <AuthorSpeechBubble>
+        <p>
+          Posted by {page.author} <span style={{fontWeight: "bold", display: "inline"}} title={articleDate}>{articleDateAgo}</span>
+        </p>
+      </AuthorSpeechBubble>
       <PageSeparator/>
 
       <CallsToAction {...home} />
@@ -55,6 +73,7 @@ export const pageQuery = graphql`
                 banner
                 bannerTransformation
                 author
+                date
             }
             html
         }

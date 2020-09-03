@@ -14,6 +14,7 @@ const Container = styled.article`
     align-items: center;
     
     ${AuthorPhoto} {
+      display: block;
       z-index: 1;
     }
 `;
@@ -21,13 +22,18 @@ const Container = styled.article`
 const PhotoLine = styled.div`
  width: 100%;
  text-align: center;
- 
+ display: flex;
+ align-items: center;
+ justify-content: center;
+    
  &:before {
   content: "";
   display: block;
   width: 50%;
   left: 50%;
-  transform: translate(50%, 30px);
+  top: 70px;
+  position: absolute;
+  transform: translateX(-50%);
   height: 1px;
   box-shadow: 0 2px 2px ${color("border.light", false)};
  }

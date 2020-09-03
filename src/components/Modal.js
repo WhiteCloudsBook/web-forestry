@@ -1,11 +1,32 @@
 import React, { useContext, useState, useCallback, useEffect } from "react";
 import { ThemeContext } from "grommet";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import Modal from "react-modal";
 import { getColor } from "../theme";
 import { FormClose } from "grommet-icons";
 
 Modal.setAppElement("#___gatsby");
+
+export const ModalGlobalStyles = createGlobalStyle`
+
+  .ReactModal__Body--open {
+    padding-right: 15px; /* Avoid width reflow */  
+  }
+  
+  .ReactModal__Overlay {
+      opacity: 0;
+      transition: opacity 1000ms ease-in-out;
+  }
+  
+  .ReactModal__Overlay--after-open{
+      opacity: 1;
+  }
+  
+  .ReactModal__Overlay--before-close{
+      opacity: 0;
+  }
+
+`;
 
 const CloseButton = styled(FormClose)`
   z-index: 1;
@@ -22,6 +43,18 @@ export default ({ children, isOpen, onClose }) => {
   const closeModal = useCallback(() => {
     onClose();
   }, [onClose]);
+
+  const onModalOpen = useCallback(()=>{
+    document.body.style.top = `-${window.scrollY}px`;
+    document.body.style.position = "fixed";
+  }, []);
+
+  const onModalClose = useCallback(()=>{
+    const scrollY = document.body.style.top;
+    document.body.style.position = "";
+    document.body.style.top = "";
+    window.scrollTo(0, parseInt(scrollY || "0") * -1);
+  }, []);
 
   useEffect(() => {
     const onOverlayClick = (e) => {
@@ -42,6 +75,8 @@ export default ({ children, isOpen, onClose }) => {
 
   return <Modal isOpen={isOpen}
                 overlayRef={setOverlayRef}
+                onAfterOpen={onModalOpen}
+                onAfterClose={onModalClose}
                 style={{
                   content: {
                     top: "50%",
@@ -55,7 +90,10 @@ export default ({ children, isOpen, onClose }) => {
                     display: "flex",
                     justifyContent: "center",
                   },
-                  overlay: { backgroundColor: getColor(theme, "overlay-bg-transparent") },
+                  overlay: {
+                    zIndex: "100",
+                    backgroundColor: getColor(theme, "overlay-bg-transparent")
+                  },
                 }}>
     <CloseButton size="large" onClick={closeModal}/>
     {children}

@@ -11,6 +11,7 @@ const BubbleContainer = styled.section`
   ${pageWidthCss}
    display: flex;
    align-items: center;
+   margin: 20px 0;
 `;
 
 const SpeechBubble = styled.div`
@@ -48,11 +49,13 @@ const SpeechBubble = styled.div`
 
 const AuthorPhotoWithBio = withModalTrigger(AuthorBio)(AuthorPhoto);
 
-export default ({ text }) => {
+export default ({ children, text }) => {
   return <BubbleContainer>
-    <AuthorPhotoWithBio />
+    <AuthorPhotoWithBio/>
     <SpeechBubble>
-      <HTMLContent content={text}/>
+      {children ?
+        children :
+        <HTMLContent content={text}/>}
     </SpeechBubble>
   </BubbleContainer>;
 };

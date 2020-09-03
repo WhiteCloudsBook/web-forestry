@@ -2,14 +2,14 @@ import React from "react";
 import Helmet from "react-helmet";
 import styled from "styled-components";
 import { Grommet } from "grommet";
+import theme, { color } from "../theme.js";
 import useSiteMetadata from "./useSiteMetadata";
 import Footer from "./Footer";
 import Header from "./Header";
 import GlobalStyles from "./GlobalStyles";
 import OpenGraph from "./OpenGraph";
-// import SocialFollowUs from "../SocialFollowUs/SocialFollowUs";
 import NotificationProvider from "./Notifications/NotificationProvider";
-import theme, { color } from "../theme.js";
+import { ModalGlobalStyles } from "./Modal";
 
 export const Main = styled.main`
   width: 100%;
@@ -29,6 +29,7 @@ const Layout = (props) => {
   return (
     <Grommet theme={theme}>
       <GlobalStyles />
+      <ModalGlobalStyles />
       <div>
         <Helmet titleTemplate={titleTemplate} htmlAttributes={{ lang: "en" }}>
           <title>{props.title}</title>

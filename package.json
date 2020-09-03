@@ -33,6 +33,7 @@
     "gatsby-transformer-yaml": "^2.4.6",
     "grommet": "^2.14.0",
     "grommet-icons": "^4.4.0",
+    "javascript-time-ago": "^2.0.13",
     "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
