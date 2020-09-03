@@ -18,7 +18,8 @@ const PageContent = styled(HTMLContent)`
 `;
 
 const HomeBanner = styled(PageBanner)`
-  height: 200px;
+  height: calc(100vw / 4);
+  max-height: 240px;
 `;
 
 const HomePageTemplate = (props) => {

@@ -28,7 +28,8 @@ const ArticleSeparator = styled.hr`
 `;
 
 const ArticleBanner = styled(PageBanner)`
-  height: 300px;
+  height: calc(100vw / 1.5);
+  max-height: 300px;
 `;
 
 const ArticlePageTemplate = (props) => {
@@ -36,12 +37,12 @@ const ArticlePageTemplate = (props) => {
 
   const articleDateAgo = useMemo(() => timeAgo.format(new Date(page.date)), [page.date]);
   const articleDate = useMemo(() => {
-    const d= new Date(page.date);
+    const d = new Date(page.date);
     return d.toLocaleString();
   }, [page.date]);
 
   return <>
-    <ArticleBanner page={page} text="WCB Blog" />
+    <ArticleBanner page={page} text="WCB Blog"/>
 
     <MainSection>
       <SocialLinks/>
@@ -54,7 +55,8 @@ const ArticlePageTemplate = (props) => {
 
       <AuthorSpeechBubble>
         <p>
-          Posted by {page.author} <span style={{fontWeight: "bold", display: "inline"}} title={articleDate}>{articleDateAgo}</span>
+          Posted by {page.author} <span style={{ fontWeight: "bold", display: "inline" }}
+                                        title={articleDate}>{articleDateAgo}</span>
         </p>
       </AuthorSpeechBubble>
       <PageSeparator/>
