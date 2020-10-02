@@ -23,16 +23,18 @@ export const ArticleListItemFragment = graphql`
     }`;
 
 const ArticleContainer = styled(Link)`
-    width: 80%;
+    width: 100%;
+    max-width: 600px;
     position: relative;  
     overflow: hidden;
-    height: 240px;
+    min-height: 240px;
     min-width: 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     margin-bottom: 16px;
+    border-radius: 5px 5px 0 0;
     
     ${color("white")}
     
@@ -44,7 +46,7 @@ const ArticleContainer = styled(Link)`
     
     ${breakpoint("tablet", true)`
       width: 30%;
-      margin-right: 10px;		       	
+      margin-right: 5px;		       	
 		`}
     
     ${breakpoint("tablet")`
@@ -53,7 +55,8 @@ const ArticleContainer = styled(Link)`
 `;
 
 const ArticleTextOverlay = styled.div`
-  ${color("overlay-bg-transparent", "bg")}
+  ${color("brand-bg-overlay-transparent", "bg")}
+  ${color("black")}
   width: 100%;
   display: flex;
   align-items: center;
@@ -78,15 +81,13 @@ const ArticleText = styled(Text)`
 
 const ArticleTitleWrapper = styled.div`
   height: 24px;
-  margin-bottom: 4px;
-   
-  ${breakpoint("tablet")`
-    z-index:1;
-    ${color("black", "bg")}
+ 
+   ${color("light-grey", "bg")}
+   ${color("black")}
+   z-index: 1;    
     width: 100%;
-    text-align: center;      
-    margin: 0;
-  `}  
+    text-align: center;          
+    
 `;
 
 const ArticleTitle = styled(Heading)`

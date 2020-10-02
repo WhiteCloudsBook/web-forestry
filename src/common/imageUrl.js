@@ -13,9 +13,9 @@ const getImageUrl = (base, path, width = 0, addDpr = false, extraTransformation)
     extraTransformation);
 
 const getSourceSrcset = (base, path, width = 0, addDpr = false, extraTransformation) => {
-  const srcSet = [
-    getImageUrl(base, path, width, extraTransformation) + ` ${width}w`,
-    addDpr ? getImageUrl(base, path, width, addDpr, extraTransformation) + ` ${width}w` : null,
+  const srcSet = [addDpr ?
+    getImageUrl(base, path, width, addDpr, extraTransformation) + ` ${width}w` :
+    getImageUrl(base, path, width, false,extraTransformation) + ` ${width}w`
   ];
 
   return srcSet.filter(Boolean)
