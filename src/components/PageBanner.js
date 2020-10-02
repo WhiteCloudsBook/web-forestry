@@ -8,7 +8,7 @@ const Banner = styled(Picture)`
   
   img {
     width: 100%;
-    max-height: 300px;
+    max-height: 100%;
   }
 `;
 
