@@ -12,9 +12,11 @@ import ArticleList from "../components/ArticleList";
 import PageBanner from "../components/PageBanner";
 import CallsToAction from "../components/CallsToAction";
 import AuthorSpeechBubble from "../components/AuthorSpeechBubble";
+import Logline from "../components/Logline";
 
 const PageContent = styled(HTMLContent)`
   ${pageWidthCss}
+  font-family: 'Turret Road', cursive;
 `;
 
 const HomeBanner = styled(PageBanner)`
@@ -33,6 +35,9 @@ const HomePageTemplate = (props) => {
       <SocialLinks/>
 
       <AuthorSpeechBubble text={page.welcomeText} />
+
+      <Logline text={page.bookLogline}/>
+      <PageSeparator/>
 
       <CallsToAction {...page} />
 
@@ -72,6 +77,7 @@ export const pageQuery = graphql`
                 banner
                 bookBlurb
                 welcomeText
+                bookLogline
             }
             ...HomeContent
         }

@@ -45,6 +45,9 @@ module.exports = {
             family: "Open Sans",
             variants: ["ital", "300", "400", "600"]
           },
+          {
+            family: "Turret Road"
+          }
         ],
       },
     },

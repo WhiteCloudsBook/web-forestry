@@ -23,7 +23,6 @@ const GlobalStyles = createGlobalStyle`
 	}
 
 	body {
-  		//font-family: 'Frank Ruhl Libre', serif;
     font-family: 'Open Sans', sans-serif;
 		line-height: 1.5;
 		${color("page-bg", "bg")}
