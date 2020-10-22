@@ -13,7 +13,7 @@ bookBlurb: |-
   <p> Now, Wendall has to leave everything behind to follow his mother’s instructions. In her recording she reveals she was part of a secret group with the sole purpose of preventing a sentient AI from rising again. When last encountered, this AI had killed tens of thousands. </p>
   <p> The cult attempting to resurrect the AI are hunting Wendall. They need him, not for what he can do or what he knows but for <span style='text-decoration: underline;'>what he is</span>. The AI’s source code fused into his DNA, a result of an accident generations old. With this code, They’d be able to fulfill their plan to instate the AI entity as humanity’s ruler. </p>
   <p> After his pursuers kill a friend sent to help, Wendall is all alone, and facing an impossible decision. If he runs, his enemy will no doubt hurt more of his friends. If he fights and falls into their hands, the AI would be unstoppable. According to his mom, setting it loose on the Clouds could only mean one thing - <strong>Annihilation</strong>. </p>
-  <p> Wendall's only choice is stop this cult. To do this he must confront what he cannot outrun - <em>The part of the AI that’s inside him</em>. </p>
+  <p> Wendall's only choice is stop this cult. To do so he must confront what he cannot outrun - <em>The part of the AI that’s inside him</em>. </p>
 type: home
 welcomeText: "<p><strong>Welcome</strong>. My name is <em>Yoav Niran</em> and <em>White
   Clouds</em> is my first sci-fi novel. Here you can find information about how to
