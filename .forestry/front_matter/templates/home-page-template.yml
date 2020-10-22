@@ -85,5 +85,14 @@ fields:
     schema:
       format: html-blocks
   label: Welcome Text
+- name: bookLogline
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: book logline
 pages:
 - content/index.md
