@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FacebookOption, Twitter } from "grommet-icons";
+import { FacebookOption, Twitter, Instagram } from "grommet-icons";
 import { pageWidthCss } from "../common/styles";
 import useSiteMetadata from "./useSiteMetadata";
 
@@ -8,20 +8,22 @@ const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  ${pageWidthCss}
   margin: 10px 0;
+  
+  ${pageWidthCss}  
 `;
 
 const ICONS = {
   // "youtube": Youtube,
   "twitter": Twitter,
-  // "instagram": Instagram,
+  "instagram": Instagram,
   "facebook": FacebookOption,
 };
 
 const SERVICES = {
   "facebook": "facebookPageUrl",
   "twitter": "twitterUserUrl",
+  "instagram": "instagramUrl",
 };
 
 export default ({ className }) => {

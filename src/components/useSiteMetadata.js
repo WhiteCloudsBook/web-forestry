@@ -13,6 +13,7 @@ const useSiteMetadata = () => {
                     cloudinaryBase
                     facebookPageUrl
                     twitterUserUrl
+                    instagramUrl
                     logo
                     authorPhoto
 #                    social{
