@@ -21,6 +21,6 @@ welcomeText: "<p><strong>Welcome</strong>. My name is <em>Yoav Niran</em> and <e
 bookLogline: On board a giant space station, **Wendall**, a pilot-school cadet, must
   stop a cult organization bent on resurrecting a powerful sentient entity. Failure
   means humanity’s **annihilation**, but what will Wendall do when he finds just how
-  _deep_ his connection to this powerful AI runs.
+  _deep_ his connection to this powerful AI runs?
 
 ---
