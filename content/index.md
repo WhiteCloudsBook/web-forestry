@@ -18,9 +18,9 @@ type: home
 welcomeText: "<p><strong>Welcome</strong>. My name is <em>Yoav Niran</em> and <em>White
   Clouds</em> is my first sci-fi novel. Here you can find information about how to
   read  the book and how to support its publication.</p>"
-bookLogline: On board a giant space station, **Wendall**, a pilot-school cadet, must
+bookLogline: "On board a giant space station, <strong>Wendall</strong>, a pilot-school cadet, must
   stop a cult organization bent on resurrecting a powerful sentient entity. Failure
-  means humanity’s **annihilation**, but what will Wendall do when he finds just how
-  _deep_ his connection to this powerful AI runs?
+  means humanity’s <strong>annihilation</strong>, but what will Wendall do when he finds just how
+  <span style='font-style: italic;'>deep</span> his connection to this powerful AI runs?"
 
 ---

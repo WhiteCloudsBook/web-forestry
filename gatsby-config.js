@@ -38,16 +38,11 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-prefetch-google-fonts",
+      resolve: "gatsby-plugin-google-fonts",
       options: {
         fonts: [
-          {
-            family: "Open Sans",
-            variants: ["ital", "300", "400", "600"]
-          },
-          {
-            family: "Turret Road"
-          }
+	        "Open Sans\\:ital,300,400,600",
+	        "Turret Road"
         ],
       },
     },
